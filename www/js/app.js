@@ -2,7 +2,7 @@
 
 /* App Module */
 /* var tamilQuotesApp = angular.module('tamilQuotesApp', ['ngRoute', 'ngSanitize', 'pascalprecht.translate', 'tamilPaarvaiControllers', 'parvaiServices', 'parvaiFilters', 'underscore', 'cacheService']); */
-var tamilQuotesApp = angular.module('tamilQuotesApp', ['ngRoute', 'ngSanitize', 'pascalprecht.translate', 'underscore', 'tamilQuotesControllers', 'tamilQuotesServices', 'cacheService']); 
+var tamilQuotesApp = angular.module('tamilQuotesApp', ['ngRoute', 'ngSanitize', 'jm.i18next', 'underscore', 'tamilQuotesControllers', 'tamilQuotesServices', 'cacheService']); 
 
 tamilQuotesApp.config(['$routeProvider', 
 		function ($routeProvider) {
@@ -30,25 +30,14 @@ tamilQuotesApp.config(['$routeProvider',
 		}
 	]);
 
-/*
-tamilPaarvaiApp.config(function ($translateProvider) {
-        $translateProvider.translations('en', {
-          TITLE: 'Tamil Payanam',
-          HOME: 'Home'
-        });
-        $translateProvider.translations('ta', {
-          TITLE: '\u0ba4\u0bae\u0bbf\u0bb4\u0bcd \u0baa\u0baf\u0ba3\u0bae\u0bcd',
-          HOME: '\u0bae\u0bc1\u0b95\u0baa\u0bcd\u0baa\u0bc1',
-          PAZAMOZHI: '\u0baa\u0bb4\u0bae\u0bca\u0bb4\u0bbf\u0b95\u0bb3\u0bcd',
-          VIDUGATHAIGAL: '\u0bb5\u0bbf\u0b9f\u0bc1\u0b95\u0ba4\u0bc8\u0b95\u0bb3\u0bcd',
-          PUDHIRGAL: '\u0baa\u0bc1\u0ba4\u0bbf\u0bb0\u0bcd\u0b95\u0bb3\u0bcd',
-          SINDANAI: '\u0b9a\u0bbf\u0ba8\u0bcd\u0ba4\u0ba9\u0bc8 \u0ba4\u0bc1\u0bb3\u0bbf\u0b95\u0bb3\u0bcd',
-          PADALGAL: '\u0baa\u0bbe\u0b9f\u0bb2\u0bcd\u0b95\u0bb3\u0bcd',
-          KADHAIGAL: '\u0b95\u0ba4\u0bc8\u0b95\u0bb3\u0bcd',
-          ARINDU: '\u0b85\u0bb1\u0bbf\u0ba8\u0bcd\u0ba4\u0bc1 \u0b95\u0bca\u0bb3\u0bcd\u0bb5\u0bcb\u0bae\u0bcd',
-          KUZANDHAI: '\u0b95\u0bc1\u0bb4\u0ba8\u0bcd\u0ba4\u0bc8 \u0bb5\u0bb3\u0bb0\u0bcd\u0baa\u0bcd\u0baa\u0bc1',
-          AANMIGAM: '\u0b86\u0ba9\u0bcd\u0bae\u0bc0\u0b95\u0bae\u0bcd'  
-        });
-        $translateProvider.preferredLanguage('ta');
-      });
-*/
+//ng-i18next - use i18next with Angularjs
+angular.module('jm.i18next').config(['$i18nextProvider', function ($i18nextProvider) {
+    $i18nextProvider.options = {
+        lng: 'ta',
+        useCookie: false,
+        useLocalStorage: false,
+        fallbackLng: 'en',
+        resGetPath: 'locales/__lng__/__ns__.json',
+        defaultLoadingValue: '' // ng-i18next option, *NOT* directly supported by i18next
+    };
+}]);
