@@ -1,0 +1,42 @@
+
+.nopadding {
+	padding: 0px;
+}
+
+.nomargin {
+	margin : 0px;
+}
+
+.main-title {
+  padding: 5px;
+  margin: 0px;
+}
+
+.content {
+	margin-top: 50px;
+}
+
+/* Main List Styling */
+ul.grid-main {
+	margin: 0px;
+	padding: 5px;	
+}
+
+ul.grid-main  li {
+	list-style-type: none;
+	min-height: 60px; 
+	/* background-color: #EFEFEC; */
+  	margin: 0px;	
+  	padding-bottom: 25px;
+}
+
+.grid-icon-holder {
+	text-align: center;
+	margin : 0px;
+	padding : 0px;
+}
+
+.grid-item {
+	text-align: center;
+	font-size: 12px;
+}

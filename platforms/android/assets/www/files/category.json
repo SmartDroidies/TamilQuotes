@@ -1,0 +1,14 @@
+[	
+	{"code": "FRIEND", "id":	"", "imageUrl": "", "order": "1"},
+	{"code": "LOVE", "id":	"", "imageUrl": "", "order": "2"},
+	{"code": "RELATION", "id":	"", "imageUrl": "", "order": "3"},
+	{"code": "WISHES", "id":	"", "imageUrl": "", "order": "4"},
+	{"code": "FUNNY", "id":	"", "imageUrl": "", "order": "5"},
+	{"code": "INSPIRATION", "id":	"", "imageUrl": "", "order": "6"},
+	{"code": "QUOTES", "id":	"", "imageUrl": "", "order": "7"},
+	{"code": "SAD", "id":	"", "imageUrl": "", "order": "8"},
+	{"code": "KAVIDAI", "id":	"", "imageUrl": "", "order": "9"},
+	{"code": "CINEMA", "id":	"", "imageUrl": "", "order": "10"},
+	{"code": "PICTURE", "id":	"", "imageUrl": "", "order": "11"},
+	{"code": "ANGER", "id":	"10", "imageUrl": "", "order": "12"}
+]

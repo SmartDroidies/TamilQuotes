@@ -28,22 +28,49 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="css/tamilquotes.css">
+        <title>Tamil Quotes</title>
     </head>
     <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+
+        <!-- Header -->
+        <nav class="navbar navbar-default navbar-fixed-top col-xs-12 nopaddng nomargin" role="navigation">
+          <div class="navbar-header main-header col-xs-12 nopadding nomargin">
+            <!--img id="menu-cntrl" class="menu-control" src="images/menu.png"/-->
+            <div class="head_section col-xs-12 nopadding nomargin">
+              <h2  id="main-title" class="main-title">Tamil Quotes</h2>
             </div>
+            <!--img id="setting-cntrl" class="setting-control" src="images/setting.png"/-->
+          </div>
+        </nav>
+
+        <!--Body content-->
+        <div ng-view class="content col-xs-12">
         </div>
+
+        <script src="js/angular/angular.js"></script>
+        <script src="js/angular-route/angular-route.min.js"></script>
+        <script src="js/jquery/jquery.min.js"></script>
+        <script src="js/underscore/underscore.js"></script>    
+        <script src="js/angular-resource/angular-resource.min.js"></script>    
+        <script src="js/angular-sanitize/angular-sanitize.min.js"></script>
+        <script src="js/angular-touch/angular-touch.min.js"></script>
+        <script src="js/angular-translate/angular-translate.min.js"></script>
+        <script src="js/underscore/angular-underscore-module.js"></script>  
+        <script src="js/jquery-i18n-properties/jquery.i18n.properties.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/controller.js"></script>
+        <script src="js/services.js"></script>
+        <script>    
+            angular.element(document).ready(function() {
+                angular.bootstrap(document, ['tamilQuotesApp']);
+            });
+        </script>    
     </body>
 </html>

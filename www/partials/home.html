@@ -1,0 +1,12 @@
+<ul id="ctgryList" class="grid-main">
+    <li ng-repeat="category in categories" class="col-xs-4 grid-cell">
+		<a href="#/{{kit.view}}" class="section">
+			<div class="grid-icon-holder">
+				<img ng-src="{{category.imageUrl}}" class="grid-icon">
+			</div>	
+			<div class="grid-item">
+				<span class="title below-image">{{category.code}}</span>
+			</div>		
+		</a>		
+    </li>
+</ul>
