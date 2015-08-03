@@ -10,11 +10,11 @@ tamilQuotesApp.config(['$routeProvider',
 				templateUrl : 'partials/home.html',
 				controller : 'HomeCtrl'
 			}).
-      /*
-      when('/articles/:cat', {
-        templateUrl : 'partials/articles.html',
-        controller : 'ArticlesCtrl'
+      when('/list', {
+        templateUrl : 'partials/list.html',
+        controller : 'QuoteListCtrl'
       }).
+      /*
       when('/article/:cat/:id/:index', {
         templateUrl : 'partials/article.html',
         controller : 'ArticleCtrl'

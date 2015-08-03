@@ -3,29 +3,28 @@ var tamilQuotesServices = angular.module('tamilQuotesServices', ['ngResource']);
 
 
 //Factory for loading the feed from Local Storage
-/*
-parvaiServices.factory ('StorageService', function () {
+tamilQuotesServices.factory ('StorageService', function () {
 	var storageFactory = {}; 
-	var keyArticles =  "articles";
+	var keyQuotes =  "quotes";
 	var keySyncTime =  "sync_time";
 	var keySyncVersion =  "sync_version";
 
 	//Collect all tips 
 	storageFactory.syncDate = function() {
 		var self = this;
-		var fileURL =  "files/articles.json";
+		var fileURL =  "files/quotes.json";
 		//var syncTime =  window.localStorage.getItem(keySyncTime);
 		var version = window.localStorage.getItem(keySyncVersion);
 		
 		//FIXME - Check if the data check has been done already
 		jQuery.getJSON(fileURL, function (data) {
-			console.log("Loading Articles from FileSystem");
+			console.log("Loading Quotes from FileSystem");
 		}).done(function(data) {
 			if(!version || data.version > version) {
 				console.log("Updating Local Storage");
 				window.localStorage.setItem(keySyncTime, data.time);
 				window.localStorage.setItem(keySyncVersion, data.version);
-				window.localStorage.setItem(keyArticles, JSON.stringify(data.articles));
+				window.localStorage.setItem(keyQuotes, JSON.stringify(data.quotes));
 			}	
 		}).fail(function(jqXHR, textStatus, errorThrown) {
 			console.log("Show Error Message - " + textStatus);
@@ -33,8 +32,8 @@ parvaiServices.factory ('StorageService', function () {
 			
 		});
 
+		/*
 		//FIXME - Do it one for each session
-		//var fileTransfer = new FileTransfer();
 		var uri = encodeURI("http://www.tamilpayanam.com/?json=y");
 		var lastSyncTime = window.localStorage.getItem(keySyncTime);
 		if(lastSyncTime) {
@@ -51,8 +50,10 @@ parvaiServices.factory ('StorageService', function () {
 		}).always(function() {
 			
 		});
+		*/
 	}
 
+	/*
 	//Sync Temp JSON
 	storageFactory.syncLocalStorage = function(remoteJSON) {	
 		var localArticles =  window.localStorage.getItem(keyArticles);
@@ -85,33 +86,33 @@ parvaiServices.factory ('StorageService', function () {
 			}
 		}	
 	}
+	*/
 
-
-	//Collect all articles 
-	storageFactory.collectArticles = function() {
-		console.log('Collecting Articles from Local Storage');
-		var data =  window.localStorage.getItem(keyArticles);
+	//Collect all quotes 
+	storageFactory.collectQuotes = function() {
+		console.log('Collecting Quotes from Local Storage');
+		var data =  window.localStorage.getItem(keyQuotes);
 		return JSON.parse(data);
 	}
 	
+
 	return storageFactory;
 });
-*/
-
-
-/* Cache Services */
-var cacheServices = angular.module('cacheService', []);
-cacheServices.factory('cacheService', ['$cacheFactory', function ($cacheFactory) {
-			return $cacheFactory('quotes-cache');
-		}
-	]);
 
 
 //Factory for managing articles
-/*
-tamilQuotesServices.factory ('ArticleService', function (StorageService, _, cacheService) {
+tamilQuotesServices.factory ('QuoteService', function (StorageService, _, cacheService) {
 	var factory = {}; 
 
+	//Collect new quotes
+	factory.collectNewQuotes = function() {
+		var quotesAll = StorageService.collectQuotes();	
+
+		//FIXME - Collect new quotes
+		return quotesAll;
+	}
+
+	/*
 	//Fetch Articles By Category
 	factory.fetchArticlesByCategory = function(category) {
 		var key = 'CTGRY' + category;
@@ -151,11 +152,10 @@ tamilQuotesServices.factory ('ArticleService', function (StorageService, _, cach
 		article.size = articles.length;
 		return article;
     }
-
+	*/
 	
     return factory;
 });
-*/ 
 
 
 //Factory for managing category
@@ -197,3 +197,14 @@ tamilQuotesServices.factory ('CategoryService', function (_, cacheService, $http
 	
     return factory;
 }); 
+
+
+
+
+/* Cache Services */
+var cacheServices = angular.module('cacheService', []);
+cacheServices.factory('cacheService', ['$cacheFactory', function ($cacheFactory) {
+			return $cacheFactory('quotes-cache');
+		}
+	]);
+
