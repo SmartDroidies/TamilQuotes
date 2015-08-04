@@ -24,7 +24,7 @@ tamilQuotesControllers.controller('HomeCtrl', ['$scope', '$http',  'CategoryServ
 		storageService.syncDate();
     	window.plugins.spinnerDialog.hide();
 
-    	$location.path('/list');  
+    	//$location.path('/list');  
 	};
 
 	$scope.showList = function () {       
@@ -35,6 +35,37 @@ tamilQuotesControllers.controller('HomeCtrl', ['$scope', '$http',  'CategoryServ
 
 	//Show Home
 	$scope.displayHome();
+  }]
+);
+
+
+
+
+tamilQuotesControllers.controller('QuotesCtrl', ['$scope', 'QuoteService', '$routeParams',
+  function($scope, quoteService, $routeParams) {
+	
+	//List All new quptes
+	$scope.listQuotes = function () {
+		
+		var categoryId = $routeParams.cat;
+		console.log("Article Category : " + categoryId);
+
+		window.plugins.spinnerDialog.show();
+		var quotes = quoteService.collectNewQuotes();
+		if (quotes === undefined || quotes === null) {
+			console.log('JSON is empty. Display Error');
+			//FIXME - Display Message
+		} else {
+			$scope.quotes = quotes;
+		}
+
+		window.plugins.spinnerDialog.hide();
+	};
+	
+
+	//Show Quotes
+	$scope.listQuotes();
+
   }]
 );
 

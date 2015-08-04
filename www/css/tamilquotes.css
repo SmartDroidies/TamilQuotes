@@ -13,7 +13,8 @@
 }
 
 .content {
-	margin-top: 50px;
+    margin: 50px 0px 0px 0px;
+    padding: 0px;	
 }
 
 /* Main List Styling */
@@ -25,9 +26,8 @@ ul.grid-main {
 ul.grid-main  li {
 	list-style-type: none;
 	min-height: 60px; 
-	/* background-color: #EFEFEC; */
   	margin: 0px;	
-  	padding-bottom: 25px;
+    padding: 0px 0px 25px 0px;  	
 }
 
 .grid-icon-holder {
@@ -39,4 +39,14 @@ ul.grid-main  li {
 .grid-item {
 	text-align: center;
 	font-size: 12px;
+}
+
+.category {
+    color: #4E0786;
+    font-weight: bold
+}
+
+.grid-icon  {
+	height: 40px;
+    width: 40px;
 }

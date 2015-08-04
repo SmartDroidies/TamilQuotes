@@ -14,14 +14,14 @@ tamilQuotesApp.config(['$routeProvider',
         templateUrl : 'partials/list.html',
         controller : 'QuoteListCtrl'
       }).
+      when('/quotes/:cat', {
+        templateUrl : 'partials/quotes.html',
+        controller : 'QuotesCtrl'
+      }).
       /*
       when('/article/:cat/:id/:index', {
         templateUrl : 'partials/article.html',
         controller : 'ArticleCtrl'
-      }).
-      when('/article/:id', {
-        templateUrl : 'partials/article.html',
-        controller : 'ArticleDirectCtrl'
       }).
       */
 			otherwise({

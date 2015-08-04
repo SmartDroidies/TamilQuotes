@@ -1,11 +1,11 @@
-<ul id="ctgryList" class="grid-main" ng-swipe-right="showList()">
+<ul id="ctgryList" class="grid-main col-xs-12" ng-swipe-right="showList()">
     <li ng-repeat="category in categories" class="col-xs-4 grid-cell">
-		<a href="#/{{kit.view}}" class="section">
+		<a href="#/quotes/{{category.id}}" class="col-xs-12 section">
 			<div class="grid-icon-holder">
 				<img ng-src="{{category.imageUrl}}" class="grid-icon">
 			</div>	
 			<div class="grid-item">
-				<span class="title below-image">{{category.code | i18next}}</span>
+				<span class="category below-image">{{category.code | i18next}}</span>
 			</div>		
 		</a>		
     </li>
