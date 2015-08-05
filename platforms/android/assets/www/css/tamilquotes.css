@@ -63,3 +63,14 @@ ul.grid-main  li {
 	background-color: #F7BDAA;
 	color: #000;
 }
+
+.list-quotes {
+} 
+
+.quote-list-item {
+    padding: 5px 5px 10px 10px;
+    font-size: 18px;
+}
+
+li.quote-list-item:nth-child(even) {background: #CCC}
+li.quote-list-item:nth-child(odd) {background: #FFF}
