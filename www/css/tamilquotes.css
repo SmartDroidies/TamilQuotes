@@ -1,3 +1,7 @@
+div, p, li {
+	color:  #191919;
+}
+
 
 .nopadding {
 	padding: 0px;
@@ -8,8 +12,12 @@
 }
 
 .main-title {
-  padding: 5px;
-  margin: 0px;
+    padding: 5px;
+    margin: 0px;
+    text-align: center;
+    font-size: 24px;
+    padding-top: 15px;	
+    color: #000;
 }
 
 .content {
@@ -19,8 +27,8 @@
 
 /* Main List Styling */
 ul.grid-main {
-	margin: 0px;
-	padding: 5px;	
+	margin: 20px 0px 10px 0px;
+    padding: 5px;	
 }
 
 ul.grid-main  li {
@@ -42,11 +50,16 @@ ul.grid-main  li {
 }
 
 .category {
-    color: #4E0786;
+	color: #191919;
     font-weight: bold
 }
 
 .grid-icon  {
-	height: 40px;
-    width: 40px;
+	height: 60px;
+    width: 60px;
+}
+
+.navbar-quote {
+	background-color: #F7BDAA;
+	color: #000;
 }

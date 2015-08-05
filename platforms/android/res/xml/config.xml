@@ -9,6 +9,11 @@
         <param name="android-package" value="hu.dpal.phonegap.plugins.SpinnerDialog" />
     </feature>
     <allow-intent href="market:*" />
+    <icon density="mdpi" src="res/android/tamilquotes_mdpi.png" />
+    <icon density="hdpi" src="res/android/tamilquotes_hdpi.png" />
+    <icon density="xhdpi" src="res/android/tamilquotes_xhdpi.png" />
+    <icon density="xxhdpi" src="res/android/tamilquotes_xxhdpi.png" />
+    <icon density="xxxhdpi" src="res/android/tamilquotes_xxxhdpi.png" />
     <name>Tamil Status &amp; Quotes</name>
     <description>
         A sample Apache Cordova application for Tamil Quotes
