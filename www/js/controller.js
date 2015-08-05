@@ -48,10 +48,10 @@ tamilQuotesControllers.controller('QuotesCtrl', ['$scope', 'QuoteService', '$rou
 	$scope.listQuotes = function () {
 		
 		var categoryId = $routeParams.cat;
-		console.log("Article Category : " + categoryId);
+		//console.log("Article Category : " + categoryId);
 
 		window.plugins.spinnerDialog.show();
-		var quotes = quoteService.collectNewQuotes();
+		var quotes = quoteService.fetchQuotesByCategory(categoryId);
 		if (quotes === undefined || quotes === null) {
 			console.log('JSON is empty. Display Error');
 			//FIXME - Display Message

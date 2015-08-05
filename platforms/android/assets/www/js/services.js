@@ -112,19 +112,18 @@ tamilQuotesServices.factory ('QuoteService', function (StorageService, _, cacheS
 		return quotesAll;
 	}
 
-	/*
-	//Fetch Articles By Category
-	factory.fetchArticlesByCategory = function(category) {
+	//Fetch Quotes By Category
+	factory.fetchQuotesByCategory = function(category) {
 		var key = 'CTGRY' + category;
-		//console.log("CTGRY : " + key);
-		var articlesByCtgry = cacheService.get(key);
-		if(!articlesByCtgry) {
-			var articlesAll = StorageService.collectArticles();
-			//articlesByCtgry = articlesAll;
-			if(articlesAll) {
+		console.log("CTGRY : " + key);
+		var quotesByCtgry = cacheService.get(key);
+		if(!quotesByCtgry) {
+			var quotesAll = StorageService.collectQuotes();
+			quotesByCtgry = quotesAll;
+			if(quotesAll) {
 				var filtered = [];
 				if(category) {
-					articlesByCtgry = _.filter(articlesAll, function(item) {  
+					quotesByCtgry = _.filter(quotesAll, function(item) {  
 						var bCtgryMatch = false;
 						for (var j = 0, length = item.category.length; j < length; j++) {
 							if(item.category[j] == category) {
@@ -134,14 +133,14 @@ tamilQuotesServices.factory ('QuoteService', function (StorageService, _, cacheS
 						return bCtgryMatch; 
 					});
 				}	
-				articlesByCtgry = _.sortBy(articlesByCtgry, "post_date").reverse();
-				//console.log("Filtered Article Length : " + tipsByCtgry.length);
-				cacheService.put(key, articlesByCtgry);
+				quotesByCtgry = _.sortBy(quotesByCtgry, "post_date").reverse();
+				cacheService.put(key, quotesByCtgry);
 			}
 		}
-		return articlesByCtgry;
+		return quotesByCtgry;
 	}
 
+	/*
 	// Collect indexed Article for a category
 	factory.collectArticle = function(category, index) {
 		var self = this;
