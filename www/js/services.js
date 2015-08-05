@@ -140,18 +140,16 @@ tamilQuotesServices.factory ('QuoteService', function (StorageService, _, cacheS
 		return quotesByCtgry;
 	}
 
-	/*
-	// Collect indexed Article for a category
-	factory.collectArticle = function(category, index) {
+	// Collect indexed Quote for a category
+	factory.collectQuote = function(category, index) {
 		var self = this;
-		var article;
-		var articles = self.fetchArticlesByCategory(category);
-		article = articles[index];
-		article.position = parseInt(index) + 1;
-		article.size = articles.length;
-		return article;
+		var quote;
+		var quotes = self.fetchQuotesByCategory(category);
+		quote = quotes[index];
+		quote.position = parseInt(index) + 1;
+		quote.size = quotes.length;
+		return quote;
     }
-	*/
 	
     return factory;
 });
@@ -193,6 +191,18 @@ tamilQuotesServices.factory ('CategoryService', function (_, cacheService, $http
 		return deferred.promise;
 	} 
 
+	//Collect Category for an ID
+	factory.collectCategory = function(catID) {
+		var key = 'tq-categories';
+		var categories = cacheService.get(key);
+		var category = {};
+		if(categories) {
+			category = _.find(categories, function(ctgry) { 
+				return ctgry.id == catID; 
+			});
+		} 
+		return category;
+	} 
 	
     return factory;
 }); 

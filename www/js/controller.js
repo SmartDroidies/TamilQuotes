@@ -41,8 +41,8 @@ tamilQuotesControllers.controller('HomeCtrl', ['$scope', '$http',  'CategoryServ
 
 
 
-tamilQuotesControllers.controller('QuotesCtrl', ['$scope', 'QuoteService', '$routeParams',
-  function($scope, quoteService, $routeParams) {
+tamilQuotesControllers.controller('QuotesCtrl', ['$scope', 'QuoteService', 'CategoryService', '$routeParams', '$location',
+  function($scope, quoteService, Category, $routeParams, $location) {
 	
 	//List All new quptes
 	$scope.listQuotes = function () {
@@ -51,6 +51,9 @@ tamilQuotesControllers.controller('QuotesCtrl', ['$scope', 'QuoteService', '$rou
 		//console.log("Article Category : " + categoryId);
 
 		window.plugins.spinnerDialog.show();
+
+		var ctgry = Category.collectCategory(categoryId);
+
 		var quotes = quoteService.fetchQuotesByCategory(categoryId);
 		if (quotes === undefined || quotes === null) {
 			console.log('JSON is empty. Display Error');
@@ -59,9 +62,14 @@ tamilQuotesControllers.controller('QuotesCtrl', ['$scope', 'QuoteService', '$rou
 			$scope.quotes = quotes;
 		}
 
+		$scope.category = ctgry;
 		window.plugins.spinnerDialog.hide();
 	};
 	
+	//Display Quote
+	$scope.displayQuote = function (categoryId, index) {
+		$location.path('/quote/' + categoryId + "/" + index);  
+	};
 
 	//Show Quotes
 	$scope.listQuotes();
@@ -97,3 +105,53 @@ tamilQuotesControllers.controller('QuoteListCtrl', ['$scope', '$http',  'QuoteSe
   }]
 );
 
+
+//Controller to display Quote Details
+tamilQuotesControllers.controller('QuoteCtrl', ['$scope', '$routeParams', 'QuoteService', 'CategoryService', '$sce', '$interval',
+	function($scope, $routeParams, Quote,  Category, $sce, $interval) {
+
+	$scope.displaySelectedQuote = function() {
+		var categoryId = $routeParams.cat;
+		var idx = $routeParams.index;
+		$scope.index = idx;
+		$scope.categoryId = categoryId;
+		$scope.displayQuoteDetail();
+	}
+
+	//Method to display quote detail
+	$scope.displayQuoteDetail = function () {         
+		var ctgry = Category.collectCategory($scope.categoryId);
+		var quote = Quote.collectQuote($scope.categoryId, $scope.index);
+		if (quote === undefined || quote === null) {
+			console.log('JSON is empty. Display Error');
+		} else {
+			$scope.quote = quote;
+		}
+		$scope.category = ctgry;
+		$scope.size = quote.size;
+	}
+
+
+	//Older Qupte  
+	$scope.older = function () {
+		$scope.index = ($scope.index < $scope.size) ? ++$scope.index : $scope.size;
+		$scope.displayQuoteDetail();
+	};
+
+	//Newer Quote  
+	$scope.newer = function () {
+		$scope.index = ($scope.index > 0) ? --$scope.index : 0;
+		$scope.displayQuoteDetail();
+	};
+
+	/*
+	$scope.share = function ($event, tip) {         
+		//console.log('Gesture ' + $event.type + ' - tip ' + JSON.stringify(tip));
+		window.plugins.socialsharing.share('\n Download Tamil Kuripugal App https://play.google.com/store/apps/details?id=com.smart.droid.tamil.tips', tip.title + ' Read More - ' + tip.link)
+	};
+	*/
+	
+	//Loading the Tips
+	$scope.displaySelectedQuote();
+
+}]);	

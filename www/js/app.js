@@ -18,12 +18,10 @@ tamilQuotesApp.config(['$routeProvider',
         templateUrl : 'partials/quotes.html',
         controller : 'QuotesCtrl'
       }).
-      /*
-      when('/article/:cat/:id/:index', {
-        templateUrl : 'partials/article.html',
-        controller : 'ArticleCtrl'
+      when('/quote/:cat/:index', {
+        templateUrl : 'partials/quote.html',
+        controller : 'QuoteCtrl'
       }).
-      */
 			otherwise({
 				redirectTo : '/home'
 			});

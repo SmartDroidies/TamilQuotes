@@ -68,8 +68,8 @@ ul.grid-main  li {
 } 
 
 .quote-list-item {
-    padding: 5px 5px 10px 10px;
-    font-size: 18px;
+    padding: 5px 7px 10px 10px;
+    font-size: 16px;
 }
 
 li.quote-list-item:nth-child(even) {background: #CCC}
