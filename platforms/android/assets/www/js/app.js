@@ -2,7 +2,7 @@
 
 /* App Module */
 /* var tamilQuotesApp = angular.module('tamilQuotesApp', ['ngRoute', 'ngSanitize', 'pascalprecht.translate', 'tamilPaarvaiControllers', 'parvaiServices', 'parvaiFilters', 'underscore', 'cacheService']); */
-var tamilQuotesApp = angular.module('tamilQuotesApp', ['ngRoute', 'ngSanitize', 'jm.i18next', 'underscore', 'tamilQuotesControllers', 'tamilQuotesServices', 'cacheService']); 
+var tamilQuotesApp = angular.module('tamilQuotesApp', ['ngRoute', 'ngSanitize', 'ngAnimate', 'jm.i18next', 'underscore', 'tamilQuotesControllers', 'tamilQuotesServices', 'cacheService']); 
 
 tamilQuotesApp.config(['$routeProvider', 
 		function ($routeProvider) {

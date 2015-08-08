@@ -7,8 +7,8 @@
 	{"code": "INSPIRATION", "id": "6", "imageUrl": "images/dummy.png", "order": "6"},
 	{"code": "QUOTES", "id": "7", "imageUrl": "images/dummy.png", "order": "7"},
 	{"code": "SAD", "id": "8", "imageUrl": "images/dummy.png", "order": "8"},
-	{"code": "KAVIDAI", "id": "9", "imageUrl": "images/dummy.png", "order": "9"},
+	{"code": "JOKES", "id": "9", "imageUrl": "images/dummy.png", "order": "9"},
 	{"code": "CINEMA", "id": "10", "imageUrl": "images/dummy.png", "order": "10"},
-	{"code": "PICTURE", "id": "11", "imageUrl": "images/dummy.png", "order": "11"},
-	{"code": "ANGER", "id":	"12", "imageUrl": "images/dummy.png", "order": "12"}
+	{"code": "PUDHUKAVI", "id": "11", "imageUrl": "images/dummy.png", "order": "11"},
+	{"code": "OTHERS", "id": "12", "imageUrl": "images/dummy.png", "order": "12"}
 ]

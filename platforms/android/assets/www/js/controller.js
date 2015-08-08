@@ -39,8 +39,7 @@ tamilQuotesControllers.controller('HomeCtrl', ['$scope', '$http',  'CategoryServ
 );
 
 
-
-
+//Controller for listing quotes
 tamilQuotesControllers.controller('QuotesCtrl', ['$scope', 'QuoteService', 'CategoryService', '$routeParams', '$location',
   function($scope, quoteService, Category, $routeParams, $location) {
 	
@@ -78,6 +77,7 @@ tamilQuotesControllers.controller('QuotesCtrl', ['$scope', 'QuoteService', 'Cate
 );
 
 
+//Controller for displaying quote detail
 tamilQuotesControllers.controller('QuoteListCtrl', ['$scope', '$http',  'QuoteService', 
   function($scope, $http,  quoteService) {
 	
@@ -106,7 +106,7 @@ tamilQuotesControllers.controller('QuoteListCtrl', ['$scope', '$http',  'QuoteSe
 );
 
 
-//Controller to display Quote Details
+//Controller to display Quote Detail
 tamilQuotesControllers.controller('QuoteCtrl', ['$scope', '$routeParams', 'QuoteService', 'CategoryService', '$sce', '$interval',
 	function($scope, $routeParams, Quote,  Category, $sce, $interval) {
 
@@ -134,23 +134,29 @@ tamilQuotesControllers.controller('QuoteCtrl', ['$scope', '$routeParams', 'Quote
 
 	//Older Qupte  
 	$scope.older = function () {
+		console.log('Swipe Older Triggered');
 		$scope.index = ($scope.index < $scope.size) ? ++$scope.index : $scope.size;
 		$scope.displayQuoteDetail();
 	};
 
 	//Newer Quote  
 	$scope.newer = function () {
+		console.log('Swipe Newer Triggered');
 		$scope.index = ($scope.index > 0) ? --$scope.index : 0;
 		$scope.displayQuoteDetail();
 	};
 
-	/*
-	$scope.share = function ($event, tip) {         
-		//console.log('Gesture ' + $event.type + ' - tip ' + JSON.stringify(tip));
-		window.plugins.socialsharing.share('\n Download Tamil Kuripugal App https://play.google.com/store/apps/details?id=com.smart.droid.tamil.tips', tip.title + ' Read More - ' + tip.link)
+	//Share Data
+	$scope.share = function (quote) {         
+		window.plugins.socialsharing.share(quote.content)
 	};
-	*/
-	
+
+	//Copy Data
+	$scope.copy = function (quote) {         
+		cordova.plugins.clipboard.copy(quote.content);
+		alert('Text Copied');	
+	};
+
 	//Loading the Tips
 	$scope.displaySelectedQuote();
 

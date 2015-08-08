@@ -1,0 +1,20 @@
+.animate-quotes-enter {
+	-webkit-transition: 5s linear all; /* Chrome */
+	transition: 5s linear all;
+	opacity: 0;
+}
+ 
+.animate-quotes-enter.animate-quotes-enter-active {
+	/* opacity: 1; */
+}
+
+/* The starting CSS styles for the enter animation */
+.fade-quote.ng-enter {
+  transition:0.5s linear all;
+  opacity:0.25;
+}
+
+/* The finishing CSS styles for the enter animation */
+.fade-quote.ng-enter.ng-enter-active {
+  opacity:1;
+}

@@ -8,6 +8,12 @@
     <feature name="SpinnerDialog">
         <param name="android-package" value="hu.dpal.phonegap.plugins.SpinnerDialog" />
     </feature>
+    <feature name="SocialSharing">
+        <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
+    </feature>
+    <feature name="Clipboard">
+        <param name="android-package" value="com.verso.cordova.clipboard.Clipboard" />
+    </feature>
     <allow-intent href="market:*" />
     <icon density="mdpi" src="res/android/tamilquotes_mdpi.png" />
     <icon density="hdpi" src="res/android/tamilquotes_hdpi.png" />

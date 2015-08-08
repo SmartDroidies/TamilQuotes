@@ -34,9 +34,10 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="css/tamilquotes.css">
+        <link rel="stylesheet" type="text/css" href="css/animate.css">
         <title>Tamil Status & Quotes</title>
     </head>
-    <body>
+    <body class="col-xs-12 nopadding nomargin">
 
         <!-- Header -->
         <nav class="navbar navbar-quote navbar-fixed-top col-xs-12 nopadding nomargin" role="navigation">
@@ -50,7 +51,7 @@
         </nav>
 
         <!--Body content-->
-        <div ng-view class="content col-xs-12">
+        <div ng-view class="content main col-xs-12">
         </div>
 
         <script src="js/angular/angular.js"></script>
@@ -60,6 +61,7 @@
         <script src="js/angular-resource/angular-resource.min.js"></script>    
         <script src="js/angular-sanitize/angular-sanitize.min.js"></script>
         <script src="js/angular-touch/angular-touch.min.js"></script>
+        <script src="js/angular-animate/angular-animate.js"></script>
         <script src="js/underscore/angular-underscore-module.js"></script>  
         <script type="text/javascript" src="js/i18next/i18next-1.8.0.min.js"></script>
         <script type="text/javascript" src="js/i18next/ng-i18next.min.js"></script>        

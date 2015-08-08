@@ -8,6 +8,7 @@ tamilQuotesServices.factory ('StorageService', function () {
 	var keyQuotes =  "quotes";
 	var keySyncTime =  "sync_time";
 	var keySyncVersion =  "sync_version";
+	var synced;
 
 	//Collect all tips 
 	storageFactory.syncDate = function() {
@@ -18,7 +19,7 @@ tamilQuotesServices.factory ('StorageService', function () {
 		
 		//FIXME - Check if the data check has been done already
 		jQuery.getJSON(fileURL, function (data) {
-			console.log("Loading Quotes from FileSystem");
+			//console.log("Loading Quotes from FileSystem");
 		}).done(function(data) {
 			if(!version || data.version > version) {
 				console.log("Updating Local Storage");
@@ -32,65 +33,64 @@ tamilQuotesServices.factory ('StorageService', function () {
 			
 		});
 
-		/*
 		//FIXME - Do it one for each session
-		var uri = encodeURI("http://www.tamilpayanam.com/?json=y");
-		var lastSyncTime = window.localStorage.getItem(keySyncTime);
-		if(lastSyncTime) {
-			uri = encodeURI("http://www.tamilpayanam.com/?json=y&ts=" + lastSyncTime);
-		} 
-		console.log("Download URL : " + uri);
-		jQuery.getJSON(uri, function (data) {
-			//console.log("Loading Latest Articles from Server");
-		}).done(function(data) {
-			//console.log("Fresh Data " + JSON.stringify(data));
-			self.syncLocalStorage(data);
-		}).fail(function(jqXHR, textStatus, errorThrown) {
-			console.log("Show Error Message - " + textStatus);
-		}).always(function() {
-			
-		});
-		*/
+		if(!synced) {
+			var uri = encodeURI("http://whatsappstatus.careerwrap.com/?json=y");
+			var lastSyncTime = window.localStorage.getItem(keySyncTime);
+			if(lastSyncTime) {
+				uri = encodeURI("http://whatsappstatus.careerwrap.com/?json=y&ts=" + lastSyncTime);
+			} 
+			console.log("Download URL : " + uri);
+			console.log("Synced Flag : " + synced);
+			jQuery.getJSON(uri, function (data) {
+				//console.log("Loading Latest Articles from Server");
+			}).done(function(data) {
+				//console.log("Fresh Data " + JSON.stringify(data));
+				self.syncLocalStorage(data);
+				synced = true;
+			}).fail(function(jqXHR, textStatus, errorThrown) {
+				console.log("Show Error Message - " + textStatus);
+			}).always(function() {
+				
+			});
+		}	
 	}
 
-	/*
 	//Sync Temp JSON
 	storageFactory.syncLocalStorage = function(remoteJSON) {	
-		var localArticles =  window.localStorage.getItem(keyArticles);
-		var localJSON = JSON.parse(localArticles);
+		var localQuotes =  window.localStorage.getItem(keyQuotes);
+		var localJSON = JSON.parse(localQuotes);
 		//console.log("Modified Array Size : " + _.size(remoteJSON));		
 		//console.log("Local Array Size : " + _.size(localJSON));		
 		if(_.size(remoteJSON) >  0) {
-			$.each(remoteJSON.articles, function(key, item) {
-				var newArticle = true;
+			$.each(remoteJSON.quotes, function(key, item) {
+				var newQuote = true;
 				_.find(localJSON,function(rw, rwIdx) { 
 					if(rw.id == item.id) { 
 						//console.log ("Replace Existing Object for : " + key); 
 						localJSON[rwIdx] = item;
-						newArticle = false; 
+						newQuote = false; 
 						return true;
 					}; 
 				});
 				//If new tip
-				if(newArticle) {
-					//console.log("New Object for : " + key + " - " + JSON.stringify(item));
+				if(newQuote) {
+					console.log("New Object for : " + key + " - " + JSON.stringify(item));
 					item.new = true;
 					localJSON.push(item);
-					//newJSON.push(item);
 				} 
 			});
-			window.localStorage.setItem(keyArticles, JSON.stringify(localJSON));
+			window.localStorage.setItem(keyQuotes, JSON.stringify(localJSON));
 			var modifiedTime = remoteJSON.time;
 			if(typeof modifiedTime != 'undefined') {
 				window.localStorage.setItem(keySyncTime, remoteJSON.time);
 			}
 		}	
 	}
-	*/
 
 	//Collect all quotes 
 	storageFactory.collectQuotes = function() {
-		console.log('Collecting Quotes from Local Storage');
+		//console.log('Collecting Quotes from Local Storage');
 		var data =  window.localStorage.getItem(keyQuotes);
 		return JSON.parse(data);
 	}
@@ -115,7 +115,7 @@ tamilQuotesServices.factory ('QuoteService', function (StorageService, _, cacheS
 	//Fetch Quotes By Category
 	factory.fetchQuotesByCategory = function(category) {
 		var key = 'CTGRY' + category;
-		console.log("CTGRY : " + key);
+		//console.log("CTGRY : " + key);
 		var quotesByCtgry = cacheService.get(key);
 		if(!quotesByCtgry) {
 			var quotesAll = StorageService.collectQuotes();
@@ -161,7 +161,7 @@ tamilQuotesServices.factory ('CategoryService', function (_, cacheService, $http
 
 	//Load Categories into Cache
 	factory.loadCategories = function() {
-		console.log('Load Categories From Filesystem');
+		//console.log('Load Categories From Filesystem');
 		return $http.get('files/category.json');
 	};
 
