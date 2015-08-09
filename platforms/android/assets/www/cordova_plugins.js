@@ -25,6 +25,13 @@ module.exports = [
         "clobbers": [
             "cordova.plugins.clipboard"
         ]
+    },
+    {
+        "file": "plugins/com.admob.plugin/www/AdmobPlugin.js",
+        "id": "com.admob.plugin.AdmobAd",
+        "clobbers": [
+            "window.admob"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -33,7 +40,8 @@ module.exports.metadata =
     "cordova-plugin-whitelist": "1.0.0",
     "hu.dpal.phonegap.plugins.SpinnerDialog": "1.3.1",
     "nl.x-services.plugins.socialsharing": "4.3.19",
-    "com.verso.cordova.clipboard": "0.1.0"
+    "com.verso.cordova.clipboard": "0.1.0",
+    "com.admob.plugin": "5.0.4"
 }
 // BOTTOM OF METADATA
 });

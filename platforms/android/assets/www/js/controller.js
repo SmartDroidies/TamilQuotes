@@ -154,7 +154,6 @@ tamilQuotesControllers.controller('QuoteCtrl', ['$scope', '$routeParams', 'Quote
 	//Copy Data
 	$scope.copy = function (quote) {         
 		cordova.plugins.clipboard.copy(quote.content);
-		alert('Text Copied');	
 	};
 
 	//Loading the Tips
