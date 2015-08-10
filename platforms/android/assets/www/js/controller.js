@@ -148,7 +148,7 @@ tamilQuotesControllers.controller('QuoteCtrl', ['$scope', '$routeParams', 'Quote
 
 	//Share Data
 	$scope.share = function (quote) {         
-		window.plugins.socialsharing.share(quote.content)
+		window.plugins.socialsharing.share(quote.content, null, null, 'https://play.google.com/store/apps/details?id=com.smart.droidies.tamil.quotes');
 	};
 
 	//Copy Data

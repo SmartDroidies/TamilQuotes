@@ -29,8 +29,8 @@ body {
 
 .content {
 	padding: 50px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
-    height: 100%;
+    margin: 0px 0px 50px 0px;
+    height: 90%;
 }
 
 /* Main List Styling */
@@ -53,6 +53,7 @@ ul.grid-main  li {
 }
 
 .grid-item {
+	padding-top: 5px;
 	text-align: center;
 	font-size: 12px;
 }

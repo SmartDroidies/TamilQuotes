@@ -40,9 +40,8 @@ function initializeAd() {
     document.addEventListener(admob.Event.onInterstitialFailedReceive,onReceiveFail, false);
     document.addEventListener(admob.Event.onBannerFailedReceive,onReceiveFail, false);
 
-    //admob.showBanner(admob.BannerSize.BANNER, admob.Position.TOP_CENTER, null);
-    admob.showBannerAbsolute(admob.BannerSize.BANNER, 20, 50);
-	admob.cacheInterstitial();
+    admob.showBanner(admob.BannerSize.BANNER, admob.Position.BOTTOM_CENTER, null);
+  	admob.cacheInterstitial();
 
 }
 
@@ -69,16 +68,3 @@ function onReceiveFail (message) {
 } 
 
 
-function showBannerAd() {
-	//show banner at the bottom center
-	if(typeof admob !== "undefined") {
-		admob.showBanner(admob.BannerSize.BANNER, admob.Position.BOTTOM_CENTER, null);
-	}	
-}
-
-function hideBannerAd() {
-	//show banner at the bottom center
-	if(admob) {
-		admob.hideBanner();
-	}	
-}
