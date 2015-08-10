@@ -8,7 +8,7 @@
 	{"code": "QUOTES", "id": "7", "imageUrl": "images/dummy.png", "order": "7"},
 	{"code": "SAD", "id": "8", "imageUrl": "images/dummy.png", "order": "8"},
 	{"code": "JOKES", "id": "9", "imageUrl": "images/dummy.png", "order": "9"},
-	{"code": "CINEMA", "id": "10", "imageUrl": "images/dummy.png", "order": "10"},
-	{"code": "PUDHUKAVI", "id": "11", "imageUrl": "images/dummy.png", "order": "11"},
+	{"code": "PAZAMOZI", "id": "10", "imageUrl": "images/dummy.png", "order": "10"},
+	{"code": "SINDHANAI", "id": "11", "imageUrl": "images/dummy.png", "order": "11"},
 	{"code": "OTHERS", "id": "12", "imageUrl": "images/dummy.png", "order": "12"}
 ]
