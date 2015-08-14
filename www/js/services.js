@@ -38,6 +38,7 @@ tamilQuotesServices.factory ('StorageService', function () {
 			var uri = encodeURI("http://whatsappstatus.careerwrap.com/?json=y");
 			var lastSyncTime = window.localStorage.getItem(keySyncTime);
 			if(lastSyncTime) {
+				lastSyncTime = lastSyncTime - 18000;
 				uri = encodeURI("http://whatsappstatus.careerwrap.com/?json=y&ts=" + lastSyncTime);
 			} 
 			console.log("Download URL : " + uri);
@@ -67,7 +68,7 @@ tamilQuotesServices.factory ('StorageService', function () {
 				var newQuote = true;
 				_.find(localJSON,function(rw, rwIdx) { 
 					if(rw.id == item.id) { 
-						//console.log ("Replace Existing Object for : " + key); 
+						console.log ("Replace Existing Object for : " + item.id); 
 						localJSON[rwIdx] = item;
 						newQuote = false; 
 						return true;

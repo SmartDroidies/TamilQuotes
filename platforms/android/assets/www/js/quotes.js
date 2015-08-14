@@ -4,7 +4,6 @@ function onDeviceReadyAction() {
 
 	// Manage Ad
 	initializeAd();
-	
 
 }
 

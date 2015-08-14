@@ -1,6 +1,7 @@
 <div class="quote col-xs-12" ng-swipe-left="older({{index}})" ng-swipe-right="newer({{index}})">
 	<input type="hidden" id="sequence" ng-model="quote.position"/></input>
 	<input type="hidden" ng-model="quote.size"/></input>
+	<input type="hidden" value="{{quote.id}}"/></input>
 	<div class="quote-content" ng-bind-html="quote.content"></div>
 </div>	
 
