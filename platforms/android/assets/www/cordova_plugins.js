@@ -27,10 +27,17 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/com.admob.plugin/www/AdmobPlugin.js",
-        "id": "com.admob.plugin.AdmobAd",
+        "file": "plugins/cordova-plugin-device/www/device.js",
+        "id": "cordova-plugin-device.device",
         "clobbers": [
-            "window.admob"
+            "device"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-gcmpush/www/gcm.js",
+        "id": "cordova-plugin-gcmpush.GCMPush",
+        "clobbers": [
+            "GCMPush"
         ]
     }
 ];
@@ -41,7 +48,8 @@ module.exports.metadata =
     "hu.dpal.phonegap.plugins.SpinnerDialog": "1.3.1",
     "nl.x-services.plugins.socialsharing": "4.3.19",
     "com.verso.cordova.clipboard": "0.1.0",
-    "com.admob.plugin": "5.0.4"
+    "cordova-plugin-device": "1.0.1",
+    "cordova-plugin-gcmpush": "0.0.1"
 }
 // BOTTOM OF METADATA
 });

@@ -68,7 +68,7 @@ tamilQuotesServices.factory ('StorageService', function () {
 				var newQuote = true;
 				_.find(localJSON,function(rw, rwIdx) { 
 					if(rw.id == item.id) { 
-						console.log ("Replace Existing Object for : " + item.id); 
+						//console.log ("Replace Existing Object for : " + item.id); 
 						localJSON[rwIdx] = item;
 						newQuote = false; 
 						return true;
@@ -76,7 +76,7 @@ tamilQuotesServices.factory ('StorageService', function () {
 				});
 				//If new tip
 				if(newQuote) {
-					console.log("New Object for : " + key + " - " + JSON.stringify(item));
+					//console.log("New Object for : " + key + " - " + JSON.stringify(item));
 					item.new = true;
 					localJSON.push(item);
 				} 

@@ -32,10 +32,19 @@
         "is_top_level": true,
         "variables": {}
     },
-    "com.admob.plugin": {
+    "cordova-plugin-device": {
         "source": {
             "type": "registry",
-            "id": "com.admob.plugin"
+            "id": "cordova-plugin-device"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-gcmpush": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/SmartDroidies/GCMPush.git",
+            "subdir": "."
         },
         "is_top_level": true,
         "variables": {}

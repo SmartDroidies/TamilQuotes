@@ -34,11 +34,26 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+
+        /*
+        var success = function(message) {
+            alert(message);
+        }
+
+        var failure = function() {
+            alert("Error calling Hello Plugin");
+        }
+
+        GCMPush.register("World", function (text) { alert(text); });
+        */
+
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         //console.log('Received Event: ' + id);
         angular.bootstrap(document, ['tamilQuotesApp']);
+
+        
     }
 };
 

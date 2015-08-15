@@ -245,6 +245,7 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
+    compile 'com.google.android.gms:play-services:7.8.0'
     // SUB-PROJECT DEPENDENCIES START
     debugCompile project(path: ":CordovaLib", configuration: "debug")
     releaseCompile project(path: ":CordovaLib", configuration: "release")
@@ -310,3 +311,5 @@ for (def func : cdvPluginPostBuildExtras) {
 if (hasProperty('postBuildExtras')) {
     postBuildExtras()
 }
+
+
