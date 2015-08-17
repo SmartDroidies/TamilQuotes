@@ -116,6 +116,7 @@ tamilQuotesControllers.controller('QuoteCtrl', ['$scope', '$routeParams', 'Quote
 		$scope.index = idx;
 		$scope.categoryId = categoryId;
 		$scope.displayQuoteDetail();
+		showInterstitial();
 	}
 
 	//Method to display quote detail

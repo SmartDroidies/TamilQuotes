@@ -29,7 +29,7 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"GCMPush\"><param name=\"android-package\" value=\"com.smart.droid.gcm.GCMPush\" /></feature>",
+                            "xml": "<feature name=\"AdmobPlugin\"><param name=\"android-package\" value=\"com.admob.cordova.plugin.AdmobAdPlugin\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -41,44 +41,31 @@
                         {
                             "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
                             "count": 1
-                        }
-                    ],
-                    "/manifest/application": [
+                        },
                         {
-                            "xml": "<service android:exported=\"false\" android:name=\"com.smart.droid.gcm.GCMRegister\" />",
+                            "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
                             "count": 1
-                        }
-                    ],
-                    "/manifest": [
+                        },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
                             "count": 1
                         },
                         {
-                            "xml": "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.WAKE_LOCK\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.VIBRATE\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"com.google.android.c2dm.permission.RECEIVE\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<permission android:name=\"com.smart.droidies.tamil.quotes.permission.C2D_MESSAGE\" android:protectionLevel=\"signature\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"com.smart.droidies.tamil.quotes.permission.C2D_MESSAGE\" />",
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\" />",
                             "count": 1
                         }
-                    ]
+                    ],
+                    "/manifest/application": [
+                        {
+                            "xml": "<meta-data android:name=\"com.google.android.gms.version\" android:value=\"7327000\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<activity android:configChanges=\"keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize\" android:name=\"com.google.android.gms.ads.AdActivity\" />",
+                            "count": 1
+                        }
+                    ],
+                    "/manifest": []
                 }
             }
         }
@@ -99,7 +86,7 @@
         "cordova-plugin-device": {
             "PACKAGE_NAME": "com.smart.droidies.tamil.quotes"
         },
-        "cordova-plugin-gcmpush": {
+        "com.admob.plugin": {
             "PACKAGE_NAME": "com.smart.droidies.tamil.quotes"
         }
     },

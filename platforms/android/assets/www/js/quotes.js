@@ -34,7 +34,7 @@ function exitAppPopup() {
 
 function initializeAd() {
 
-	admob.initAdmob("ca-app-pub-8348832609194072/9466879544","ca-app-pub-8348832609194072/3420345945");
+	  admob.initAdmob("ca-app-pub-8348832609194072/9466879544","ca-app-pub-8348832609194072/3420345945");
     document.addEventListener(admob.Event.onInterstitialReceive, onInterstitialReceive, false);
     document.addEventListener(admob.Event.onInterstitialFailedReceive,onReceiveFail, false);
     document.addEventListener(admob.Event.onBannerFailedReceive,onReceiveFail, false);

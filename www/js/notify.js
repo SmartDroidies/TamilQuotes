@@ -5,15 +5,19 @@ var gsmKey = 'gsm-key';
 function onDeviceReady() {
 	var version = device.platform;	
 	var senderId = "210482740085";
+	var topic = "tamil-status";
 	if(version == "Android") {
 		var gsmKeyLocal = window.localStorage.getItem(gsmKey);
 		if(!gsmKeyLocal) {
-			GCMPush.register(successHandler, errorHandler, {"senderId":senderId});
+			//GCMPush.register(successHandler, errorHandler, {"senderId":senderId, "topic":topic});
+		} else {
+			//FIXME - Check from server and register again if required 	
 		}	
 	}	
 }	
 
 function successHandler(regid) {
+	console.log("GCM Registration Key : " + regid);
 	registerDevice(regid);
 }
 

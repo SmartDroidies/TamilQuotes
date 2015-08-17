@@ -17,8 +17,8 @@
     <feature name="Device">
         <param name="android-package" value="org.apache.cordova.device.Device" />
     </feature>
-    <feature name="GCMPush">
-        <param name="android-package" value="com.smart.droid.gcm.GCMPush" />
+    <feature name="AdmobPlugin">
+        <param name="android-package" value="com.admob.cordova.plugin.AdmobAdPlugin" />
     </feature>
     <allow-intent href="market:*" />
     <icon density="mdpi" src="res/android/tamilquotes_mdpi.png" />

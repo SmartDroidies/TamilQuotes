@@ -34,10 +34,10 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/cordova-plugin-gcmpush/www/gcm.js",
-        "id": "cordova-plugin-gcmpush.GCMPush",
+        "file": "plugins/com.admob.plugin/www/AdmobPlugin.js",
+        "id": "com.admob.plugin.AdmobAd",
         "clobbers": [
-            "GCMPush"
+            "window.admob"
         ]
     }
 ];
@@ -49,7 +49,7 @@ module.exports.metadata =
     "nl.x-services.plugins.socialsharing": "4.3.19",
     "com.verso.cordova.clipboard": "0.1.0",
     "cordova-plugin-device": "1.0.1",
-    "cordova-plugin-gcmpush": "0.0.1"
+    "com.admob.plugin": "5.0.4"
 }
 // BOTTOM OF METADATA
 });
