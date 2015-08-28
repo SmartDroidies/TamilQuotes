@@ -13,13 +13,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/nl.x-services.plugins.socialsharing/www/SocialSharing.js",
-        "id": "nl.x-services.plugins.socialsharing.SocialSharing",
-        "clobbers": [
-            "window.plugins.socialsharing"
-        ]
-    },
-    {
         "file": "plugins/com.verso.cordova.clipboard/www/clipboard.js",
         "id": "com.verso.cordova.clipboard.Clipboard",
         "clobbers": [
@@ -39,6 +32,13 @@ module.exports = [
         "clobbers": [
             "window.admob"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-social-message/www/socialmessage.js",
+        "id": "cordova-plugin-social-message.SocialMessage",
+        "clobbers": [
+            "socialmessage"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -46,10 +46,10 @@ module.exports.metadata =
 {
     "cordova-plugin-whitelist": "1.0.0",
     "hu.dpal.phonegap.plugins.SpinnerDialog": "1.3.1",
-    "nl.x-services.plugins.socialsharing": "4.3.19",
     "com.verso.cordova.clipboard": "0.1.0",
     "cordova-plugin-device": "1.0.1",
-    "com.admob.plugin": "5.0.4"
+    "com.admob.plugin": "5.0.4",
+    "cordova-plugin-social-message": "0.3.1"
 }
 // BOTTOM OF METADATA
 });
