@@ -105,9 +105,12 @@ li.quote-list-item:nth-child(odd) {
 */
 
 .quote-content {
-	margin: 40px 10px;
-    text-align: center;
+    margin: 40px 0px;
+    /* text-align: center; */
     font-size: 18px;
+    height: 400px;
+    overflow: scroll;
+    padding-bottom: 30px;
 }
 
 #footer {
