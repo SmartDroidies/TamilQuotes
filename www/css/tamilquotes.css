@@ -107,12 +107,13 @@ li.quote-list-item:nth-child(odd) {
 */
 
 .quote-content {
-    margin: 40px 0px;
-    /* text-align: center; */
+    margin: 10px 0px 0px 0px;
     font-size: 18px;
     height: 400px;
     overflow: scroll;
     padding-bottom: 30px;
+    line-height: 28px;
+    font-weight: 500;
 }
 
 .quote {
@@ -140,4 +141,17 @@ li.quote-list-item:nth-child(odd) {
     padding: 0px;
     margin: 0px;
     text-align: center;
+}
+
+.position {
+    position: absolute;
+    bottom: 30px;
+}
+
+.quote-head {
+    font-size: 18px;
+    text-align: center;
+    background-color: #CDFDBC;
+    margin: 0px;
+    padding: 5px 0px;    
 }

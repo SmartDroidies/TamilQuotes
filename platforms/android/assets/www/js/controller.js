@@ -47,7 +47,7 @@ tamilQuotesControllers.controller('QuotesCtrl', ['$scope', 'QuoteService', 'Cate
 	$scope.listQuotes = function () {
 		
 		var categoryId = $routeParams.cat;
-		console.log("Quotes Category : " + categoryId);
+		//console.log("Quotes Category : " + categoryId);
 
 		window.plugins.spinnerDialog.show();
 
@@ -58,7 +58,7 @@ tamilQuotesControllers.controller('QuotesCtrl', ['$scope', 'QuoteService', 'Cate
 			console.log('JSON is empty. Display Error');
 			//FIXME - Display Message
 		} else {
-			console.log(JSON.stringify(quotes));
+			//console.log(JSON.stringify(quotes));
 			$scope.quotes = quotes;
 		}
 

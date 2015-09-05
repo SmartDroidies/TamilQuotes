@@ -2,7 +2,9 @@
 	<input type="hidden" id="sequence" ng-model="quote.position"/></input>
 	<input type="hidden" ng-model="quote.size"/></input>
 	<input type="hidden" value="{{quote.id}}"/></input>
+	<div class="quote-head"><label>{{category.code | i18next}}  ({{quote.position}} of {{quote.size}})</label></div>
 	<div class="quote-content" ng-bind-html="quote.content" ng-class="category.code"></div>
+	<!--div class="postion"><label>{{quote.position}} of {{quote.size}} </label></div-->	
 </div>	
 
 <div id="footer" class="col-xs-12">

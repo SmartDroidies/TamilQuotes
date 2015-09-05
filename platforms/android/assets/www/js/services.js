@@ -41,8 +41,8 @@ tamilQuotesServices.factory ('StorageService', function () {
 				lastSyncTime = lastSyncTime - 18000;
 				uri = encodeURI("http://whatsappstatus.careerwrap.com/?json=y&ts=" + lastSyncTime);
 			} 
-			console.log("Download URL : " + uri);
-			console.log("Synced Flag : " + synced);
+			//console.log("Download URL : " + uri);
+			//console.log("Synced Flag : " + synced);
 			jQuery.getJSON(uri, function (data) {
 				//console.log("Loading Latest Articles from Server");
 			}).done(function(data) {
