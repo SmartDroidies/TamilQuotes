@@ -1,15 +1,20 @@
-<div class="quote col-xs-12" ng-swipe-left="older({{index}})" ng-swipe-right="newer({{index}})">
+<div class="quote col-xs-11" ng-swipe-left="older({{index}})" ng-swipe-right="newer({{index}})">
 	<input type="hidden" id="sequence" ng-model="quote.position"/></input>
 	<input type="hidden" ng-model="quote.size"/></input>
 	<input type="hidden" value="{{quote.id}}"/></input>
-	<div class="quote-content" ng-bind-html="quote.content"></div>
+	<div class="quote-content" ng-bind-html="quote.content" ng-class="category.code"></div>
 </div>	
 
 <div id="footer" class="col-xs-12">
-	<div class="btn-group btn-group-lg col-xs-12" role="group">
-	  <button type="button" class="btn btn-default" ng-click="newer(index)">Prev</button>
-	  <button type="button" class="btn btn-default" ng-click="copy(quote)">Copy</button>
-	  <button type="button" class="btn btn-default" ng-click="share(quote)">Share</button>
-	  <button type="button" class="btn btn-default" ng-click="older(index)">Next</button>
+	<div class="icon-group col-xs-12" role="group">
+	  
+	  <div class="col-xs-3 icon"><img src="images/prev.png" ng-click="newer(index)"> </div>
+	  <div class="col-xs-3 icon"><img src="images/copy.png" ng-click="copy(quote)"> </div>
+	  <div class="col-xs-3 icon"><img src="images/share.png" ng-click="share(quote)"> </div>
+	  <div class="col-xs-3 icon"><img src="images/next.png" ng-click="older(index)"> </div>
+	  <!--button type="button" class="col-xs-3 btn btn-default" ng-click="newer(index)">Prev</button>
+	  <button type="button" class="col-xs-3 btn btn-default" ng-click="copy(quote)">Copy</button>
+	  <button type="button" class="col-xs-3 btn btn-default" ng-click="share(quote)">Share</button>
+	  <button type="button" class="col-xs-3 btn btn-default" ng-click="older(index)">Next</button-->
 	</div>
 </div>	

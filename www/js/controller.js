@@ -47,7 +47,7 @@ tamilQuotesControllers.controller('QuotesCtrl', ['$scope', 'QuoteService', 'Cate
 	$scope.listQuotes = function () {
 		
 		var categoryId = $routeParams.cat;
-		//console.log("Article Category : " + categoryId);
+		console.log("Quotes Category : " + categoryId);
 
 		window.plugins.spinnerDialog.show();
 
@@ -58,6 +58,7 @@ tamilQuotesControllers.controller('QuotesCtrl', ['$scope', 'QuoteService', 'Cate
 			console.log('JSON is empty. Display Error');
 			//FIXME - Display Message
 		} else {
+			console.log(JSON.stringify(quotes));
 			$scope.quotes = quotes;
 		}
 
@@ -154,7 +155,6 @@ tamilQuotesControllers.controller('QuoteCtrl', ['$scope', '$routeParams', 'Quote
     		url: "https://play.google.com/store/apps/details?id=com.smart.droidies.tamil.quotes"
 		};
 		window.socialmessage.send(message);
-		//window.plugins.socialsharing.share(quote.content, null, null, 'https://play.google.com/store/apps/details?id=com.smart.droidies.tamil.quotes');
 	};
 
 	//Copy Data

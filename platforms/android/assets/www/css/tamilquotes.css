@@ -74,7 +74,9 @@ ul.grid-main  li {
 }
 
 .list-quotes {
-	padding: 0px 0px 60px 0px;
+	padding: 0px 0px 0px 0px;
+    height: 100%;
+    overflow-y: scroll;
 } 
 
 .list-quotes li {
@@ -113,7 +115,29 @@ li.quote-list-item:nth-child(odd) {
     padding-bottom: 30px;
 }
 
+.quote {
+    border-radius: 10px;
+    background: repeating-linear-gradient(to bottom right, #CFF1C3 5%, #E6F5E0 10%);
+    padding: 5px;
+    height: 100%;
+    width: auto;
+    margin: 5px;
+    text-align: center;
+}
+
 #footer {
 	bottom: 0px;
 	position: absolute;
+}
+
+.icon-group {
+    background-color: #CDFDBC;
+    margin: 0px;
+    padding: 0px;
+}
+
+.icon {
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
 }
