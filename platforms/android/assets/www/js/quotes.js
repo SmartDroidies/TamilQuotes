@@ -3,7 +3,7 @@ document.addEventListener("deviceready", onDeviceReadyAction, false);
 function onDeviceReadyAction() {
 
 	// Manage Ad
-	initializeAd();
+	// initializeAd();
 
 }
 
