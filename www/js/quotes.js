@@ -5,7 +5,22 @@ function onDeviceReadyAction() {
 	// Manage Ad
 	// initializeAd();
 
+    //Handle Setting 
+    $( "#setting-cntrl" ).click(function() {
+        if($("#setting").is(":visible")) {
+            hideMenu();
+        } else {
+            $("#setting").show(200);
+        }
+    });
+
 }
+
+function hideMenu() {
+    //$("#menu").hide(100);
+    $("#setting").hide(100);
+}
+
 
 /*
 //Exit Implementation
@@ -66,4 +81,32 @@ function onReceiveFail (message) {
     //console.log("load fail: " + message.type + "  " + msg);
 } 
 
+//Rate App
+function rateus() {
+    var version = device.platform;
+    hideMenu();
+    if(version == "Android") {
+        var url = "market://details?id=com.smart.droidies.tamil.quotes";
+        window.open(url,"_system");     
+    }   
+}
+
+
+//Share the app link with user
+function shareApp() {
+    window.plugins.socialsharing.share('Try this great App - ', 'Tamil Status & Quotes ', null, 'https://play.google.com/store/apps/details?id=com.smart.droidies.tamil.quotes');
+
+    hideMenu();
+}
+
+//Provide Feedback
+function feedback() {
+    window.plugin.email.open({
+        to:      ['tamilistatus@gmail.com'],
+        subject: 'Feedback on Tamil Status & Quotes',
+        body:    '',
+        isHtml:  true
+    });
+    hideMenu();
+}
 

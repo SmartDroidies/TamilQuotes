@@ -3,7 +3,7 @@ div, p, li {
 }
 
 html, body {
-    height: 100%;
+    height: Calc(100% - 25px);
 }
 
 body {
@@ -29,8 +29,8 @@ body {
 
 .content {
 	padding: 50px 0px 0px 0px;
-    margin: 0px 0px 50px 0px;
-    height: 90%;
+    margin: 0px 0px 0px 0px;
+    height: 100%;
 }
 
 /* Main List Styling */
@@ -127,7 +127,7 @@ li.quote-list-item:nth-child(odd) {
 }
 
 #footer {
-	bottom: 0px;
+	bottom: 5px;
 	position: absolute;
 }
 
@@ -154,4 +154,45 @@ li.quote-list-item:nth-child(odd) {
     background-color: #CDFDBC;
     margin: 0px;
     padding: 5px 0px;    
+}
+
+.setting-control {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 45px;
+    height: 45px;
+}
+
+.menu, .setting {
+  padding: 55px 0 0 0;
+}
+
+
+/* Setting Styling */
+#setting  {
+    background: #eef5ef;
+    box-shadow: 5px 5px 5px #94A095;    
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display : none; 
+}
+
+#setting ul li {
+    border-bottom: 1px Solid #C3C4BF;   
+}
+
+#setting ul li  a {
+    font-size: 20px;
+    color: #1F1F1F; 
+    padding-right: 20px;
+}
+
+#setting ul li.nav-header {
+    font-size: 22px;
+    padding: 10px;
+    color: #1F1F1F; 
+    font-weight : bold;
+    background: #ACACAC;
 }

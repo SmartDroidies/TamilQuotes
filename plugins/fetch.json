@@ -7,14 +7,6 @@
         "is_top_level": true,
         "variables": {}
     },
-    "hu.dpal.phonegap.plugins.SpinnerDialog": {
-        "source": {
-            "type": "registry",
-            "id": "hu.dpal.phonegap.plugins.spinnerdialog"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "com.verso.cordova.clipboard": {
         "source": {
             "type": "git",
@@ -44,6 +36,38 @@
         "source": {
             "type": "registry",
             "id": "cordova-plugin-social-message"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "com.rjfun.cordova.extension": {
+        "source": {
+            "type": "registry",
+            "id": "com.rjfun.cordova.extension"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "cordova-plugin-x-socialsharing": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-x-socialsharing"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "de.appplant.cordova.plugin.email-composer": {
+        "source": {
+            "type": "registry",
+            "id": "de.appplant.cordova.plugin.email-composer"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "hu.dpal.phonegap.plugins.SpinnerDialog": {
+        "source": {
+            "type": "registry",
+            "id": "hu.dpal.phonegap.plugins.SpinnerDialog"
         },
         "is_top_level": true,
         "variables": {}

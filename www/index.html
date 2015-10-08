@@ -28,7 +28,7 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+        <meta http-equiv="Content-Security-Policy" content="default-src * unsafe-inline; style-src 'self' 'unsafe-inline'; script-src 'self' http://soma-assets.smaato.net http://soma.smaato.net/ http://code.jquery.com/ https://raw.githubusercontent.com/ 'unsafe-inline' 'unsafe-eval' ">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -46,13 +46,14 @@
             <div class="head_section col-xs-12 nopadding nomargin">
               <h2  id="main-title" class="main-title">Tamil Status & Quotes</h2>
             </div>
-            <!--img id="setting-cntrl" class="setting-control" src="images/setting.png"/-->
+            <img id="setting-cntrl" class="setting-control" src="images/setting.png"/>
           </div>
         </nav>
 
         <!--Body content-->
         <div ng-view class="content main col-xs-12">
         </div>
+
 
         <script src="js/angular/angular.js"></script>
         <script src="js/angular-route/angular-route.min.js"></script>
@@ -72,5 +73,37 @@
         <script src="js/controller.js"></script>
         <script src="js/services.js"></script>
         <script src="js/quotes.js"></script>
+        <script src="js/directive.js"></script>
+        <!--script src="js/smaato.js"></script-->
+
+        <div id="smaatoad" style="padding: 0px"></div>
+        <script type="text/javascript" src="http://soma-assets.smaato.net/js/smaatoAdTag.js"></script>
+        <script>
+            function callBackForSmaato(status){
+                if(status == "SUCCESS"){
+                    console.log('callBack is being called with status : ' + status);
+                } else if (status == "ERROR"){
+                    console.log('callBack is being called with status : ' + status);
+                }
+            }; 
+            SomaJS.loadAd({
+                adDivId : "smaatoad",
+                publisherId: 1100012715,
+                adSpaceId: 130050534,
+                dimension: "small"
+            },callBackForSmaato);
+        </script>
+
     </body>
+
+
+    <!-- Settings Menu -->
+    <div id="setting" class="setting">
+      <ul class="nav nav-list">
+          <li><a href="#share" onclick="shareApp()">Share</a></li>
+          <li><a href="#rate" onclick="rateus()">Rate Me</a></li>
+          <li><a href="#feedback" onclick="feedback()">Feedback</a></li>
+      </ul>
+    </div>
+
 </html>
