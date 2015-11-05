@@ -3,7 +3,7 @@ document.addEventListener("deviceready", onDeviceReadyAction, false);
 function onDeviceReadyAction() {
 
 	// Manage Ad
-	// initializeAd();
+	initializeAd();
 
     //Handle Setting 
     $( "#setting-cntrl" ).click(function() {
@@ -94,8 +94,12 @@ function rateus() {
 
 //Share the app link with user
 function shareApp() {
-    window.plugins.socialsharing.share('Try this great App - ', 'Tamil Status & Quotes ', null, 'https://play.google.com/store/apps/details?id=com.smart.droidies.tamil.quotes');
-
+    var message = {
+        subject: 'Try this great App',
+        text: "Tamil Status & Quotes -",
+        url: "https://play.google.com/store/apps/details?id=com.smart.droidies.tamil.quotes"
+    };
+    window.socialmessage.send(message);
     hideMenu();
 }
 

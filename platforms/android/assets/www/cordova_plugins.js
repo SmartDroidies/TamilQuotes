@@ -1,13 +1,6 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
     {
-        "file": "plugins/com.admob.plugin/www/AdmobPlugin.js",
-        "id": "com.admob.plugin.AdmobAd",
-        "clobbers": [
-            "window.admob"
-        ]
-    },
-    {
         "file": "plugins/com.verso.cordova.clipboard/www/clipboard.js",
         "id": "com.verso.cordova.clipboard.Clipboard",
         "clobbers": [
@@ -32,16 +25,40 @@ module.exports = [
         "file": "plugins/cordova-plugin-whitelist/whitelist.js",
         "id": "cordova-plugin-whitelist.whitelist",
         "runs": true
+    },
+    {
+        "file": "plugins/cordova-plugin-social-message/www/socialmessage.js",
+        "id": "cordova-plugin-social-message.SocialMessage",
+        "clobbers": [
+            "socialmessage"
+        ]
+    },
+    {
+        "file": "plugins/admob/www/AdmobPlugin.js",
+        "id": "admob.AdmobAd",
+        "clobbers": [
+            "window.admob"
+        ]
+    },
+    {
+        "file": "plugins/de.appplant.cordova.plugin.email-composer/www/email_composer.js",
+        "id": "de.appplant.cordova.plugin.email-composer.EmailComposer",
+        "clobbers": [
+            "cordova.plugins.email",
+            "plugin.email"
+        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "com.admob.plugin": "5.0.4",
     "com.verso.cordova.clipboard": "0.1.0",
     "cordova-plugin-device": "1.0.1",
     "hu.dpal.phonegap.plugins.SpinnerDialog": "1.3.1",
-    "cordova-plugin-whitelist": "1.0.0"
+    "cordova-plugin-whitelist": "1.0.0",
+    "cordova-plugin-social-message": "0.3.1",
+    "admob": "5.2.0",
+    "de.appplant.cordova.plugin.email-composer": "0.8.2"
 }
 // BOTTOM OF METADATA
 });
