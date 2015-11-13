@@ -35,6 +35,10 @@
                         {
                             "xml": "<feature name=\"EmailComposer\"><param name=\"android-package\" value=\"de.appplant.cordova.emailcomposer.EmailComposer\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Toast\"><param name=\"android-package\" value=\"nl.xservices.plugins.Toast\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -93,6 +97,9 @@
             "PACKAGE_NAME": "com.smart.droidies.tamil.quotes"
         },
         "de.appplant.cordova.plugin.email-composer": {
+            "PACKAGE_NAME": "com.smart.droidies.tamil.quotes"
+        },
+        "cordova-plugin-x-toast": {
             "PACKAGE_NAME": "com.smart.droidies.tamil.quotes"
         }
     },

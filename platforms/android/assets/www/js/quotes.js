@@ -1,3 +1,5 @@
+var testDevice = '9ff99ad5ec042ed6';
+
 //Device Ready Event
 document.addEventListener("deviceready", onDeviceReadyAction, false);
 function onDeviceReadyAction() {
@@ -49,23 +51,42 @@ function exitAppPopup() {
 
 function initializeAd() {
 
-	  admob.initAdmob("ca-app-pub-8348832609194072/9466879544","ca-app-pub-8348832609194072/3420345945");
+	admob.initAdmob("ca-app-pub-8348832609194072/9466879544","ca-app-pub-8348832609194072/3420345945");
     document.addEventListener(admob.Event.onInterstitialReceive, onInterstitialReceive, false);
     document.addEventListener(admob.Event.onInterstitialFailedReceive,onReceiveFail, false);
     document.addEventListener(admob.Event.onBannerFailedReceive,onReceiveFail, false);
 
-    admob.showBanner(admob.BannerSize.BANNER, admob.Position.BOTTOM_CENTER, null);
+    var admobParam = null;
+    if(isTestDevice()) {
+      admobParam = new  admob.Params();
+      admobParam.isTesting = true;
+    }
+
+    admob.showBanner(admob.BannerSize.SMART_BANNER, admob.Position.BOTTOM_CENTER, admobParam);
+    //admob.showBannerAbsolute(admob.BannerSize.SMART_BANNER, 0, 70, admobParam); //show banner at absolute position x 0,y 70
   	admob.cacheInterstitial();
 
 }
 
+function isTestDevice() {
+    var flgTestDevice = false;
+    var deviceUUID = device.uuid;
+    if(deviceUUID == testDevice) {
+      console.log("Test Device : " + device.uuid);
+      flgTestDevice = true;
+    }
+    return flgTestDevice;
+}
+
 //Load AdMob Interstitial Ad
 function showInterstitial(){
-    admob.isInterstitialReady(function(isReady){
-        if(isReady){
-            admob.showInterstitial();
-        }
-    });
+    if(!isTestDevice()) {
+        admob.isInterstitialReady(function(isReady){
+            if(isReady){
+                admob.showInterstitial();
+            }
+        });
+    }    
 }
 
 function onInterstitialReceive (message) {

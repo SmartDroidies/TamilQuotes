@@ -160,6 +160,21 @@ tamilQuotesControllers.controller('QuoteCtrl', ['$scope', '$routeParams', 'Quote
 	//Copy Data
 	$scope.copy = function (quote) {         
 		cordova.plugins.clipboard.copy(quote.content);
+
+		window.plugins.toast.showWithOptions(
+    		{
+      			message: "Message Copied",
+      			duration: "long",
+      			position: "bottom",
+      			addPixelsY: -90  // added a negative value to move it up a bit (default 0) 
+    		}
+  		);
+
+  		/*
+		window.plugins.toast.showShortTop('Hello there!', 
+			function(a) { console.log('toast success: ' + a) }, 
+			function(b) { alert('toast error: ' + b) } );
+		*/	
 	};
 
 	//Loading the Tips
