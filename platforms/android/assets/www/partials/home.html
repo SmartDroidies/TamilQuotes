@@ -1,13 +1,70 @@
-<ul id="ctgryList" class="grid-main col-xs-12" ng-swipe-right="showList()">
-    <li ng-repeat="category in categories" class="col-xs-4 grid-cell">
-		<a href="#/quotes/{{category.id}}" class="col-xs-12 section">
-			<div class="grid-icon-holder">
-				<img ng-src="{{category.imageUrl}}" class="grid-icon">
-			</div>	
-			<div class="grid-item">
-				<span class="category below-image">{{category.code | i18next}}</span>
-			</div>		
-		</a>		
-    </li>
+<!-- Header -->
+<nav class="navbar navbar-quote navbar-fixed-top col-xs-12 nopadding nomargin" role="navigation">
+  <div class="navbar-header main-header col-xs-12 nopadding nomargin">
+    <!--img id="menu-cntrl" class="menu-control" src="images/menu.png"/-->
+    <div class="head_section col-xs-12 nopadding nomargin">
+      <h2  id="main-title" class="main-title">Tamil Status & Quotes</h2>
+    </div>
+    <img id="setting-cntrl" class="setting-control" src="images/setting.png"/>
+  </div>
+</nav>
+
+
+
+<ul id="main-tabs" class="nav nav-tabs col-xs-12 main-tabs">
+	<!--li class="col-xs-4" ng-class="{'active': tab == 1}" ng-click="unreadView()">
+	  <a class="main-tab-link">{{ 'UNREAD_TAB' | translate }}</a>
+	</li-->
+	<li class="col-xs-6" ng-class="{'active': tab == 1}" ng-click="ctgryView()">
+	  <a class="main-tab-link">{{ 'tab.category' | i18next }}</a>
+	</li>
+	<li class="col-xs-6" ng-class="{'active': tab == 2}" ng-click="favouriteView()">
+	  <a class="main-tab-link">{{ 'tab.favourite' | i18next }}</a>
+	</li>
 </ul>
 
+<!-- Group View for Categories  --> 
+<div id="group-category" ng-if="tab == 1" class="col-xs-12 group">
+	<ul id="ctgryList" class="grid-main col-xs-12" ng-swipe-right="showList()">
+	    <li ng-repeat="category in categories" class="col-xs-4 grid-cell">
+			<a href="#/quotes/{{category.id}}" class="col-xs-12 section">
+				<div class="grid-icon-holder">
+					<img ng-src="{{category.imageUrl}}" class="grid-icon">
+				</div>	
+				<div class="grid-item">
+					<span class="category below-image">{{category.code | i18next}}</span>
+				</div>		
+			</a>		
+	    </li>
+	</ul>
+</div>
+
+<!-- Group View for Favourite Articles --> 
+<div id="group-favourite" ng-if="tab == 2" class="col-xs-12 group">
+  <div ng-if="favourite.length == 0" class="col-xs-12">
+    No Favourite found
+  </div>  
+
+	<ul id="quoteList" class="list-quotes col-xs-12 nopadding nomargin">
+	    <li ng-repeat="quote in favourite" class="col-xs-12 quote-list-item" ng-click="displayQuote(category.id, $index)" ng-animate="'animate-quotes'">
+	    	{{quote.content}}
+	    </li>
+	</ul>
+  <!--div class="list-group favourite-list col-xs-12" ng-repeat="quote in favourite">
+    <a href="#/quote/{{quote.id}}" class="list-group-item col-xs-12">
+      <div class="tip-listitem-icon"> 
+        <p ng-bind-html="quote.content" class="list-group-item-text" ></p>
+      </div>  
+    </a>
+  </div-->  
+</div>  
+
+
+<!-- Settings Menu -->
+<div id="setting" class="setting">
+  <ul class="nav nav-list">
+      <li><a href="#share" onclick="shareApp()">Share</a></li>
+      <li><a href="#rate" onclick="rateus()">Rate Me</a></li>
+      <li><a href="#feedback" onclick="feedback()">Feedback</a></li>
+  </ul>
+</div>

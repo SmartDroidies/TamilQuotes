@@ -22,20 +22,31 @@ body {
     padding: 5px;
     margin: 0px;
     text-align: center;
-    font-size: 24px;
-    padding-top: 15px;	
+    font-size: 20px;
+    padding-top: 10px;
     color: #000;
+    font-weight: bold;    
+}
+
+.main-title-quote {
+    padding: 5px;
+    margin: 0px 0px 0px 45px;
+    text-align: left;
+    font-size: 14px;
+    padding-top: 10px;
+    color: #000;
+    font-weight: bold;    
 }
 
 .content {
-	padding: 50px 0px 0px 0px;
+	padding: 45px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
     height: 100%;
 }
 
 /* Main List Styling */
 ul.grid-main {
-	margin: 20px 0px 10px 0px;
+	margin: 10px 0px 10px 0px;
     padding: 5px;	
 }
 
@@ -71,6 +82,10 @@ ul.grid-main  li {
 .navbar-quote {
 	background-color: #CDFDBC;
 	color: #000;
+    margin: 0px;
+    padding: 0px;    
+    min-height: 40px;
+    height: 45px;    
 }
 
 .list-quotes {
@@ -81,19 +96,18 @@ ul.grid-main  li {
 
 .list-quotes li {
 	list-style: none;
-	display: inline-block;
+	/* display: inline-block; */
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
-    line-height: 25px;
+    /* line-height: 25px; */
     position: relative;
-    padding: 10px 5px;	
+    padding: 5px;	
 }
 
 .quote-list-item {
 	border-bottom: 1px solid #1E7301;
-    padding: 5px 7px 10px 10px;
-    font-size: 18px;
+    /* padding: 5px 7px 10px 10px; */
+    font-size: 15px;
 }
 
 /*
@@ -195,4 +209,81 @@ li.quote-list-item:nth-child(odd) {
     color: #1F1F1F; 
     font-weight : bold;
     background: #ACACAC;
+}
+
+.main-tabs {
+    margin: 0px;
+    background: #ACB7A7;    
+    padding: 0px;
+}
+
+.main-tabs li {
+    margin: 0px;
+    padding: 0px;
+}
+
+.main-tab-link {
+    background-color: #8B9688;
+    color: #fff;
+    font-weight: bold;
+} 
+
+.nav-tabs > li > a {
+  padding: 5px 7px;
+  text-align: center;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  color: #000;
+  cursor: default;
+  background-color: #F5EEEE;
+  border: 1px solid #F9F1F1;
+  border-bottom-color: transparent;
+}
+
+.nav-tabs {
+  border-bottom: 1px solid #31708f; 
+}
+
+.main-header {
+    margin: 0px;
+    padding: 0px;
+}
+
+.back, .favourite, .share, .copy {
+    position: absolute;
+    top: 2px;
+    /* right: 2px; */
+    width: 35px;
+    height: 35px;    
+} 
+
+.favourite {
+    right: 90px;
+}
+
+.back {
+    left: 5px;
+}
+
+.share {
+    right: 5px;
+}
+
+.copy {
+    right: 45px;
+}
+.head_section {
+    padding: 0px;
+    margin: 0px;
+}
+
+.group {
+    padding: 0px;
+    margin: 0px;
+}
+
+.favourite-list {
+    padding: 0px;
+    margin: 0px;
 }

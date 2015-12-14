@@ -1,16 +1,33 @@
-<div class="quote col-xs-11" ng-swipe-left="older({{index}})" ng-swipe-right="newer({{index}})">
-	<input type="hidden" id="sequence" ng-model="quote.position"/></input>
-	<input type="hidden" ng-model="quote.size"/></input>
-	<input type="hidden" value="{{quote.id}}"/></input>
-	<div class="quote-head"><label>{{category.code | i18next}}  ({{quote.position}} of {{quote.size}})</label></div>
-	<div class="quote-content" ng-bind-html="quote.content" ng-class="category.code"></div>
+<div class="quote col-xs-12" ng-swipe-left="older({{index}})" ng-swipe-right="newer({{index}})">
+	<!-- Header -->
+	<nav class="navbar navbar-default navbar-quote navbar-fixed-top col-xs-12" role="navigation">
+		<div class="navbar-header main-header col-xs-12">
+			<img id="img-copy" class="back" src="images/back.png" onclick="history.back();"/>
+			<div class="head_section col-xs-12">
+				<label class="main-title-quote col-xs-12">{{category.code | i18next}}  ({{quote.position}} of {{quote.size}})</label>
+				<!--h2 id="main-title" class="main-title-tip" ng-if="tip.position">{{tip.position}} of {{tip.size}}</h2> 
+				<h2 id="main-title" class="main-title-tip" ng-if="tip.position == 'undefined'">{{ category.code | translate }} </h2--> 
+			</div>
+			<img id="img-favourite" class="favourite" src="images/unfavorite.png" ng-if="quote.favourite" ng-click="unfavourite($event, quote)"/>
+			<img id="img-unfavourite" class="favourite" src="images/favorite.png" ng-if="!quote.favourite" ng-click="favourite($event, quote)"/>
+			<img id="img-share" class="share" src="images/share.png" ng-click="share($event, tip)"/>
+			<img id="img-copy" class="copy" src="images/copy.png" ng-click="copy(quote)"> 
+		</div>
+	</nav>
+
+	<div class="quote content" ng-swipe-left="older({{index}})" ng-swipe-right="newer({{index}})">
+		<input type="hidden" id="sequence" ng-model="quote.position"/></input>
+		<input type="hidden" ng-model="quote.size"/></input>
+		<input type="hidden" value="{{quote.id}}"/></input>
+		<div class="quote-content" ng-bind-html="quote.content" ng-class="category.code"></div>
+	</div>	
 </div>	
 
-<div id="footer" class="col-xs-12">
+<!--div id="footer" class="col-xs-12">
 	<div class="icon-group col-xs-12" role="group">
 	  <div class="col-xs-3 icon"><img src="images/prev.png" ng-click="newer(index)"> </div>
 	  <div class="col-xs-3 icon"><img src="images/copy.png" ng-click="copy(quote)"> </div>
 	  <div class="col-xs-3 icon"><img src="images/share.png" ng-click="share(quote)"> </div>
 	  <div class="col-xs-3 icon"><img src="images/next.png" ng-click="older(index)"> </div>
 	</div>
-</div>	
+</div-->	

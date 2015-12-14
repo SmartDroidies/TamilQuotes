@@ -4,10 +4,21 @@
 var tamilQuotesControllers = angular.module('tamilQuotesControllers', []);
 
 
-tamilQuotesControllers.controller('HomeCtrl', ['$scope', '$http',  'CategoryService', 'StorageService', '$location',
-  function($scope, $http,  categoryService, storageService ,$location) {
+tamilQuotesControllers.controller('HomeCtrl', ['$scope', '$http',  'CategoryService', 'StorageService', 'QuoteService', '$location', '$rootScope',
+  function($scope, $http,  categoryService, StorageService, Quote, $location, $rootScope) {
 	
-	$scope.displayHome = function () {       
+	$scope.displayHome = function () {    
+		if($rootScope.tab == 1) { 
+			$scope.displayCategories();
+		} else if ($rootScope.tab == 2) {
+			$scope.favourite = Quote.collectFavourites();	
+		} else if ($rootScope.tab == 3) {
+			//$scope.newtips = Article.collectNewTips();
+		} 	
+	};
+
+	//Display Category
+	$scope.displayCategories = function() {
 		//console.log('Display Home Screen');
 		window.plugins.spinnerDialog.show();
 		var promise =  categoryService.collectCategories();
@@ -19,19 +30,40 @@ tamilQuotesControllers.controller('HomeCtrl', ['$scope', '$http',  'CategoryServ
   				//FIXME - Display Error
     			console.log('No Categories Found.');
   			});
-
-		//Sync Local Data
-		storageService.syncDate();
     	window.plugins.spinnerDialog.hide();
-
-    	//$location.path('/list');  
-	};
+	}
 
 	$scope.showList = function () {       
 		window.plugins.spinnerDialog.show();
     	console.log('Show List');
     	window.plugins.spinnerDialog.hide();
 	};
+
+	//Display Articles Category
+	$scope.ctgryView = function() {
+		$scope.displayCategories();
+		$rootScope.tab = 1;
+    };
+
+	//Display Favourite Articles
+	$scope.favouriteView = function() {
+		$scope.favourite = Quote.collectFavourites();
+		console.log("Favourites : " + $scope.favourite.length);
+		$rootScope.tab = 2;
+    };
+
+
+	//Set Default Tab to Category Listing
+	if(!$rootScope.tab) {
+		$rootScope.tab = 1;
+	} 
+
+	//Sync Local Data
+	if(!$rootScope.synced) {
+		//console.log("Requesting for Sync");
+		StorageService.syncDate();
+		$rootScope.synced = true;
+	}
 
 	//Show Home
 	$scope.displayHome();
@@ -108,8 +140,8 @@ tamilQuotesControllers.controller('QuoteListCtrl', ['$scope', '$http',  'QuoteSe
 
 
 //Controller to display Quote Detail
-tamilQuotesControllers.controller('QuoteCtrl', ['$scope', '$routeParams', 'QuoteService', 'CategoryService', '$sce', '$interval',
-	function($scope, $routeParams, Quote,  Category, $sce, $interval) {
+tamilQuotesControllers.controller('QuoteCtrl', ['$scope', '$routeParams', 'QuoteService', 'CategoryService', 'FavouriteService', '$sce', '$interval',
+	function($scope, $routeParams, Quote,  Category, Favourite, $sce, $interval) {
 
 	$scope.displaySelectedQuote = function() {
 		var categoryId = $routeParams.cat;
@@ -132,7 +164,6 @@ tamilQuotesControllers.controller('QuoteCtrl', ['$scope', '$routeParams', 'Quote
 		$scope.category = ctgry;
 		$scope.size = quote.size;
 	}
-
 
 	//Older Qupte  
 	$scope.older = function () {
@@ -169,12 +200,18 @@ tamilQuotesControllers.controller('QuoteCtrl', ['$scope', '$routeParams', 'Quote
       			addPixelsY: -90  // added a negative value to move it up a bit (default 0) 
     		}
   		);
+	};
 
-  		/*
-		window.plugins.toast.showShortTop('Hello there!', 
-			function(a) { console.log('toast success: ' + a) }, 
-			function(b) { alert('toast error: ' + b) } );
-		*/	
+	//Add tip to favourite
+	$scope.favourite = function ($event, quote) {         
+		Favourite.addTip(quote.id);
+		$scope.quote.favourite = true;
+	};
+
+	//Remove tip from favourite
+	$scope.unfavourite = function ($event, quote) {         
+		Favourite.removeTip(quote.id);
+		$scope.quote.favourite = false;
 	};
 
 	//Loading the Tips

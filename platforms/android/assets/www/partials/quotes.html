@@ -1,6 +1,17 @@
-<ul id="quoteList" class="list-quotes col-xs-12 nopadding nomargin">
-    <li ng-repeat="quote in quotes" class="col-xs-12 quote-list-item" ng-click="displayQuote(category.id, $index)" ng-animate="'animate-quotes'">
-    	{{quote.content}}
-    </li>
-</ul>
+<div class="quote col-xs-12">
+	<!-- Header -->
+	<nav class="navbar navbar-default navbar-quote navbar-fixed-top col-xs-12" role="navigation">
+		<div class="navbar-header main-header col-xs-12">
+			<img id="img-copy" class="back" src="images/back.png" onclick="history.back();"/>
+			<div class="head_section col-xs-12">
+				<label class="main-title-quote col-xs-12">{{category.code | i18next}} </label>
+			</div>
+		</div>
+	</nav>
 
+	<ul id="quoteList" class="list-quotes col-xs-12 nopadding nomargin">
+	    <li ng-repeat="quote in quotes" class="col-xs-12 quote-list-item" ng-click="displayQuote(category.id, $index)" ng-animate="'animate-quotes'">
+	    	{{quote.content}}
+	    </li>
+	</ul>
+</div>

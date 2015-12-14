@@ -24,31 +24,6 @@ function hideMenu() {
 }
 
 
-/*
-//Exit Implementation
-document.addEventListener("backbutton", function() {
-	if ( $('.ui-page-active').attr('id') == 'main') {
-		exitAppPopup();
-	} else {
-		history.back();             
-	}
-}, false);
-
-function exitAppPopup() {
-    navigator.notification.confirm(
-          'Exit Telugu Tips'
-        , function(button) {
-              if (button == 2) {
-                  navigator.app.exitApp();
-              } 
-          }
-        , 'Exit'
-        , 'No,Yes'
-    );  
-    return false;
-}
-*/
-
 function initializeAd() {
 
 	admob.initAdmob("ca-app-pub-8348832609194072/9466879544","ca-app-pub-8348832609194072/3420345945");
