@@ -40,23 +40,16 @@
 </div>
 
 <!-- Group View for Favourite Articles --> 
-<div id="group-favourite" ng-if="tab == 2" class="col-xs-12 group">
+<div id="group-favourite" ng-if="tab == 2" class="col-xs-12 group quote">
   <div ng-if="favourite.length == 0" class="col-xs-12">
     No Favourite found
   </div>  
 
 	<ul id="quoteList" class="list-quotes col-xs-12 nopadding nomargin">
 	    <li ng-repeat="quote in favourite" class="col-xs-12 quote-list-item" ng-click="displayQuote(category.id, $index)" ng-animate="'animate-quotes'">
-	    	{{quote.content}}
+	    	{{quote.content | wrap}}
 	    </li>
 	</ul>
-  <!--div class="list-group favourite-list col-xs-12" ng-repeat="quote in favourite">
-    <a href="#/quote/{{quote.id}}" class="list-group-item col-xs-12">
-      <div class="tip-listitem-icon"> 
-        <p ng-bind-html="quote.content" class="list-group-item-text" ></p>
-      </div>  
-    </a>
-  </div-->  
 </div>  
 
 

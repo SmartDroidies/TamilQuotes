@@ -144,12 +144,12 @@ tamilQuotesControllers.controller('QuoteCtrl', ['$scope', '$routeParams', 'Quote
 	function($scope, $routeParams, Quote,  Category, Favourite, $sce, $interval) {
 
 	$scope.displaySelectedQuote = function() {
+		showInterstitial();
 		var categoryId = $routeParams.cat;
 		var idx = $routeParams.index;
 		$scope.index = idx;
 		$scope.categoryId = categoryId;
 		$scope.displayQuoteDetail();
-		showInterstitial();
 	}
 
 	//Method to display quote detail
