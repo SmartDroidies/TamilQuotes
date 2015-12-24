@@ -205,14 +205,14 @@ tamilQuotesControllers.controller('QuoteCtrl', ['$scope', '$routeParams', 'Quote
 
 	//Older Qupte  
 	$scope.older = function () {
-		console.log('Swipe Older Triggered');
+		//console.log('Swipe Older Triggered');
 		$scope.index = ($scope.index < $scope.size) ? ++$scope.index : $scope.size;
 		$scope.displayQuoteDetail();
 	};
 
 	//Newer Quote  
 	$scope.newer = function () {
-		console.log('Swipe Newer Triggered');
+		//console.log('Swipe Newer Triggered');
 		$scope.index = ($scope.index > 0) ? --$scope.index : 0;
 		$scope.displayQuoteDetail();
 	};
