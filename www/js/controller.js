@@ -48,9 +48,16 @@ tamilQuotesControllers.controller('HomeCtrl', ['$scope', '$http',  'CategoryServ
 	//Display Favourite Articles
 	$scope.favouriteView = function() {
 		$scope.favourite = Quote.collectFavourites();
-		console.log("Favourites : " + $scope.favourite.length);
+		//console.log("Favourites : " + $scope.favourite.length);
 		$rootScope.tab = 2;
     };
+
+    //Display Quote
+	$scope.displayQuote = function (quoteId) {
+		//console.log('Params : ' + quoteId );
+		$location.path('/quote/' + quoteId);  
+	};
+
 
 
 	//Set Default Tab to Category Listing
@@ -103,6 +110,12 @@ tamilQuotesControllers.controller('QuotesCtrl', ['$scope', 'QuoteService', 'Cate
 		$location.path('/quote/' + categoryId + "/" + index);  
 	};
 
+	//Go Back 
+	$scope.goBack = function () {	
+		//console.log("Going back to previous screen");
+		window.history.back();
+	}
+
 	//Show Quotes
 	$scope.listQuotes();
 
@@ -147,9 +160,17 @@ tamilQuotesControllers.controller('QuoteCtrl', ['$scope', '$routeParams', 'Quote
 		showInterstitial();
 		var categoryId = $routeParams.cat;
 		var idx = $routeParams.index;
-		$scope.index = idx;
-		$scope.categoryId = categoryId;
-		$scope.displayQuoteDetail();
+		var quoteid = $routeParams.id;
+
+		if(quoteid != undefined) {
+			//console.log("Display favourite quote detail : " + quoteid);	
+			$scope.displaySelectedQuoteDetail(quoteid);
+		} else {
+			$scope.index = idx;
+			$scope.categoryId = categoryId;
+			//console.log("Display category quote detail : " + categoryId + " - " + idx);
+			$scope.displayQuoteDetail();
+		}
 	}
 
 	//Method to display quote detail
@@ -165,16 +186,33 @@ tamilQuotesControllers.controller('QuoteCtrl', ['$scope', '$routeParams', 'Quote
 		$scope.size = quote.size;
 	}
 
+	//Method to display quote detail
+	$scope.displaySelectedQuoteDetail = function (quoteid) {        
+		//console.log("Display selected quote detail : " + quoteid);		 
+		var quote = Quote.collectSingleQuote(quoteid);
+		if (quote === undefined || quote === null) {
+			console.log('JSON is empty. Display Error');
+		} else {
+			$scope.quote = quote;
+		}
+		//$scope.size = quote.size;
+		/*
+		$scope.category = ctgry;
+		$scope.size = quote.size;
+		*/
+	}
+
+
 	//Older Qupte  
 	$scope.older = function () {
-		console.log('Swipe Older Triggered');
+		//console.log('Swipe Older Triggered');
 		$scope.index = ($scope.index < $scope.size) ? ++$scope.index : $scope.size;
 		$scope.displayQuoteDetail();
 	};
 
 	//Newer Quote  
 	$scope.newer = function () {
-		console.log('Swipe Newer Triggered');
+		//console.log('Swipe Newer Triggered');
 		$scope.index = ($scope.index > 0) ? --$scope.index : 0;
 		$scope.displayQuoteDetail();
 	};

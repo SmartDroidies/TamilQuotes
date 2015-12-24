@@ -1,12 +1,11 @@
-<div class="quote col-xs-12" ng-swipe-left="older({{index}})" ng-swipe-right="newer({{index}})">
+<div class="quote col-xs-12">
 	<!-- Header -->
 	<nav class="navbar navbar-default navbar-quote navbar-fixed-top col-xs-12" role="navigation">
 		<div class="navbar-header main-header col-xs-12">
 			<img id="img-copy" class="back" src="images/back.png" onclick="history.back();"/>
 			<div class="head_section col-xs-12">
-				<label class="main-title-quote col-xs-12">{{category.code | i18next}}  ({{quote.position}} of {{quote.size}})</label>
-				<!--h2 id="main-title" class="main-title-tip" ng-if="tip.position">{{tip.position}} of {{tip.size}}</h2> 
-				<h2 id="main-title" class="main-title-tip" ng-if="tip.position == 'undefined'">{{ category.code | translate }} </h2--> 
+				<label class="main-title-quote col-xs-12" ng-if="quote.position">{{category.code | i18next}}  ({{quote.position}} of {{quote.size}})</label>
+				<label class="main-title-quote col-xs-12" ng-if="quote.position == 'undefined'">Tamil Status & Quotes</label>
 			</div>
 			<img id="img-favourite" class="favourite" src="images/unfavorite.png" ng-if="quote.favourite" ng-click="unfavourite($event, quote)"/>
 			<img id="img-unfavourite" class="favourite" src="images/favorite.png" ng-if="!quote.favourite" ng-click="favourite($event, quote)"/>

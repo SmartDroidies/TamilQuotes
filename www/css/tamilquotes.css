@@ -89,7 +89,7 @@ ul.grid-main  li {
 }
 
 .list-quotes {
-	padding: 0px 0px 0px 0px;
+	padding: 0px 0px 40px 0px;
     height: 100%;
     overflow-y: scroll;
 } 
@@ -123,9 +123,9 @@ li.quote-list-item:nth-child(odd) {
 .quote-content {
     margin: 10px 0px 0px 0px;
     font-size: 18px;
-    height: 400px;
+    height: 100%;
     overflow: scroll;
-    padding-bottom: 30px;
+    padding-bottom: 40px;
     line-height: 28px;
     font-weight: 500;
 }
@@ -136,7 +136,7 @@ li.quote-list-item:nth-child(odd) {
     padding: 5px;
     height: 100%;
     width: auto;
-    margin: 5px;
+    margin: 2px;
     text-align: center;
 }
 
@@ -264,6 +264,7 @@ li.quote-list-item:nth-child(odd) {
 
 .back {
     left: 5px;
+    z-index: 90;
 }
 
 .share {

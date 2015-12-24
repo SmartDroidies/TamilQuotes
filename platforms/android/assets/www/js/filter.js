@@ -10,10 +10,10 @@ tamilQuotesFilter.filter('wrap', function() {
     if(input.length < 200) {
       out = input;
     } else {
-      out = input.substr(1, length);
+      out = input.substr(0, length);
       var lenSpace = out.lastIndexOf(" ");
       if(lenSpace > 0) { 
-        out = out.substr(1, lenSpace) + "...."
+        out = out.substr(0, lenSpace) + "...."
         //console.log("Processed String : " + out);
       }  
     }

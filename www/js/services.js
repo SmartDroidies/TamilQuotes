@@ -128,8 +128,6 @@ tamilQuotesServices.factory ('QuoteService', function (StorageService, _, cacheS
 	//Collect new quotes
 	factory.collectNewQuotes = function() {
 		var quotesAll = StorageService.collectQuotes();	
-
-		//FIXME - Collect new quotes
 		return quotesAll;
 	}
 
@@ -160,6 +158,17 @@ tamilQuotesServices.factory ('QuoteService', function (StorageService, _, cacheS
 		}
 		return quotesByCtgry;
 	}
+
+	//Fetch Quotes from cache
+	factory.fetchQuotes = function() {
+		var key = 'QUOTES';
+		var quotes = cacheService.get(key);
+		if(!quotes) {
+			var quotes = StorageService.collectQuotes();
+		}
+		return quotes;
+	}
+
 
 	// Collect indexed Quote for a category
 	factory.collectQuote = function(category, index) {
@@ -197,7 +206,19 @@ tamilQuotesServices.factory ('QuoteService', function (StorageService, _, cacheS
 		return quotes;
 	}
 
-	
+	// Collect indexed Quote for a category
+	factory.collectSingleQuote = function(quoteid) {
+		var self = this;
+		var quotes = self.fetchQuotes();
+		var quote = null; 
+		//console.log("Quotes Size : " + _.size(quotes))
+		quote = _.find(quotes, function(item) {  
+			return item.id == quoteid;
+		});
+		quote.swipe = false;
+		return quote;
+    }
+
     return factory;
 });
 

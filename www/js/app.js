@@ -1,7 +1,7 @@
 'use strict';
 
 /* App Module */
-var tamilQuotesApp = angular.module('tamilQuotesApp', ['ngRoute', 'ngSanitize', 'ngAnimate', 'jm.i18next', 'underscore', 'tamilQuotesControllers', 'tamilQuotesServices', 'cacheService', 'tamilQuotesFilter']); 
+var tamilQuotesApp = angular.module('tamilQuotesApp', ['ngRoute', 'ngSanitize', 'ngAnimate', 'ngTouch', 'jm.i18next', 'underscore', 'tamilQuotesControllers', 'tamilQuotesServices', 'cacheService', 'tamilQuotesFilter']); 
 
 tamilQuotesApp.config(['$routeProvider', 
 		function ($routeProvider) {
@@ -18,6 +18,10 @@ tamilQuotesApp.config(['$routeProvider',
         controller : 'QuotesCtrl'
       }).
       when('/quote/:cat/:index', {
+        templateUrl : 'partials/quote.html',
+        controller : 'QuoteCtrl'
+      }).
+      when('/quote/:id', {
         templateUrl : 'partials/quote.html',
         controller : 'QuoteCtrl'
       }).

@@ -46,7 +46,7 @@
   </div>  
 
 	<ul id="quoteList" class="list-quotes col-xs-12 nopadding nomargin">
-	    <li ng-repeat="quote in favourite" class="col-xs-12 quote-list-item" ng-click="displayQuote(category.id, $index)" ng-animate="'animate-quotes'">
+	    <li ng-repeat="quote in favourite" class="col-xs-12 quote-list-item" ng-click="displayQuote(quote.id)" ng-animate="'animate-quotes'">
 	    	{{quote.content | wrap}}
 	    </li>
 	</ul>
