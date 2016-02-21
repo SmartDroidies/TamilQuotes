@@ -73,6 +73,13 @@ module.exports = [
         "clobbers": [
             "analytics"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-gcmpush/www/gcm.js",
+        "id": "cordova-plugin-gcmpush.GCMPush",
+        "clobbers": [
+            "GCMPush"
+        ]
     }
 ];
 module.exports.metadata = 

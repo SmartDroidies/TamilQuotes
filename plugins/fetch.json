@@ -87,5 +87,13 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "cordova-plugin-gcmpush": {
+        "source": {
+            "type": "local",
+            "path": "../GCMPush"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

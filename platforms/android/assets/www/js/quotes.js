@@ -1,6 +1,7 @@
 var testDevice = '9ff99ad5ec042ed6TEST';
 var interDisplayed = false;
 var analyticsId = 'UA-74071818-2';
+var GCMSenderId = '1042154778523';
 
 // select the right Ad Id according to platform 
 var admobid = {};
@@ -19,6 +20,10 @@ function onDeviceReadyAction() {
 
 	// Manage Ad
 	initializeAd();
+
+    //Initialize for Google Cloud Messaging
+    initializeGCM();
+
 
     //Handle Setting 
     $( "#setting-cntrl" ).click(function() {
@@ -117,5 +122,35 @@ function feedback() {
         isHtml:  true
     });
     hideMenu();
+}
+
+
+//Initialize Google Clould Messaging
+function initializeGCM() {
+  window.GCMPush.register(successHandlerGCM, errorHandlerGCM, {
+      "senderId" : GCMSenderId,
+      "jsCallback" : "onNotification"
+  });
+
+}
+
+//Success Handler for GCM Resgistration
+function successHandlerGCM(result) {
+  console.log("GCM Successfully Registered. Token: " + result.gcm);
+}
+
+//Failure Handler for GCM Resgistration
+function errorHandlerGCM(error) {
+  console.log("GCM Registration Error: " + error);
+}
+
+//GCM Notification Recieved
+function onNotification(id) {
+  console.log("Event Received: " + id);  
+  if(!isNaN(id)) {
+    console.log("Go to quote : " + id);
+    //var landingPath = "#/article/" + id;
+    //window.location = landingPath;
+  }  
 }
 

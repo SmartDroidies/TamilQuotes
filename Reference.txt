@@ -1,0 +1,8 @@
+Server API Key - AIzaSyCVMzyCQRFb9SZXNJd2kJyEMdAWETsEP1Q
+
+Sender ID - 1042154778523
+
+curl --header "Authorization: key=AIzaSyCVMzyCQRFb9SZXNJd2kJyEMdAWETsEP1Q" \
+       --header Content-Type:"application/json" \
+       https://gcm-http.googleapis.com/gcm/send \
+       -d "{ \"data\" : { \"title\" : \"Tamil Status & Quotes\", \"text\" : \"New Quote\", \"extra\" : \"3402\" }, \"to\" : \"cBV4RFlMEsY:APA91bGcvYp3AR_SI4QvZ-hBddvpkOrm8hmtrOO8hvLQ1UEQbsRXl9CI_A2p-5jZ7vxkXAaV1uUZ2zbsseqP4mGPDHvYoQCKIqDCh-W5FnWECCqOKx22JLhprgxHxygPC8Z5fj4_tt7R\" }"

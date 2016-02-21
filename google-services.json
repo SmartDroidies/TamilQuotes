@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_id": "tamil-status-and-quotes",
+    "project_number": "1042154778523",
+    "name": "Tamil Status and Quotes"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1042154778523:android:25de63229625c55a",
+        "client_id": "android:com.smart.droidies.tamil.quotes",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "com.smart.droidies.tamil.quotes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "cloud_messaging_service": {
+          "status": 2,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 1
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "client_info": [],
+  "ARTIFACT_VERSION": "1"
+}

@@ -104,6 +104,9 @@
         },
         "cordova-plugin-google-analytics": {
             "PACKAGE_NAME": "com.smart.droidies.tamil.quotes"
+        },
+        "cordova-plugin-gcmpush": {
+            "PACKAGE_NAME": "com.smart.droidies.tamil.quotes"
         }
     },
     "dependent_plugins": {
