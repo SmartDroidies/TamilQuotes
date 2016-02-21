@@ -48,14 +48,6 @@
         "is_top_level": true,
         "variables": {}
     },
-    "admob": {
-        "source": {
-            "type": "registry",
-            "id": "admob"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "de.appplant.cordova.plugin.email-composer": {
         "source": {
             "type": "registry",
@@ -68,6 +60,30 @@
         "source": {
             "type": "registry",
             "id": "cordova-plugin-x-toast"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-admobpro": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-admobpro"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-extension": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-extension"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "cordova-plugin-google-analytics": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-google-analytics"
         },
         "is_top_level": true,
         "variables": {}

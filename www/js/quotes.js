@@ -1,8 +1,21 @@
-var testDevice = '9ff99ad5ec042ed6';
+var testDevice = '9ff99ad5ec042ed6TEST';
+var interDisplayed = false;
+var analyticsId = 'UA-74071818-2';
+
+// select the right Ad Id according to platform 
+var admobid = {};
+if( /(android)/i.test(navigator.userAgent) ) { // for android & amazon-fireos 
+    admobid = {
+        banner: 'ca-app-pub-8348832609194072/9466879544', 
+        interstitial: 'ca-app-pub-8348832609194072/3420345945'
+    };
+} 
 
 //Device Ready Event
 document.addEventListener("deviceready", onDeviceReadyAction, false);
 function onDeviceReadyAction() {
+
+    window.analytics.startTrackerWithId(analyticsId);
 
 	// Manage Ad
 	initializeAd();
@@ -23,23 +36,18 @@ function hideMenu() {
     $("#setting").hide(100);
 }
 
-
 function initializeAd() {
 
-	admob.initAdmob("ca-app-pub-8348832609194072/9466879544","ca-app-pub-8348832609194072/3420345945");
-    document.addEventListener(admob.Event.onInterstitialReceive, onInterstitialReceive, false);
-    document.addEventListener(admob.Event.onInterstitialFailedReceive,onReceiveFail, false);
-    document.addEventListener(admob.Event.onBannerFailedReceive,onReceiveFail, false);
-
-    var admobParam = null;
-    if(isTestDevice()) {
-      admobParam = new  admob.Params();
-      admobParam.isTesting = true;
+    if(!isTestDevice()) {
+        if(AdMob) AdMob.createBanner( {
+            adId: admobid.banner, 
+            position: AdMob.AD_POSITION.BOTTOM_CENTER, 
+            autoShow: true 
+        } );
     }
-
-    admob.showBanner(admob.BannerSize.SMART_BANNER, admob.Position.BOTTOM_CENTER, admobParam);
-    //admob.showBannerAbsolute(admob.BannerSize.SMART_BANNER, 0, 70, admobParam); //show banner at absolute position x 0,y 70
-  	admob.cacheInterstitial();
+            
+    // preppare and load ad resource in background, e.g. at begining of game level 
+    if(AdMob) AdMob.prepareInterstitial( {adId:admobid.interstitial, autoShow:false} );
 
 }
 
@@ -47,20 +55,20 @@ function isTestDevice() {
     var flgTestDevice = false;
     var deviceUUID = device.uuid;
     if(deviceUUID == testDevice) {
-      console.log("Test Device : " + device.uuid);
+      //console.log("Test Device : " + device.uuid);
       flgTestDevice = true;
     }
+    //flgTestDevice = false;
     return flgTestDevice;
 }
 
 //Load AdMob Interstitial Ad
-function showInterstitial(){
-    if(!isTestDevice()) {
-        admob.isInterstitialReady(function(isReady){
-            if(isReady){
-                admob.showInterstitial();
-            }
-        });
+function showInterstitial() {
+    if(!isTestDevice() && !interDisplayed) {
+        if(AdMob) {
+            AdMob.showInterstitial();
+            interDisplayed = true;
+        }   
     }    
 }
 
@@ -70,12 +78,13 @@ function onInterstitialReceive (message) {
 }
 
 function onReceiveFail (message) {
- 	var msg=admob.Error[message.data];
+    var msg=admob.Error[message.data];
     if(msg==undefined){
        msg=message.data;
     }
     //console.log("load fail: " + message.type + "  " + msg);
 } 
+
 
 //Rate App
 function rateus() {

@@ -39,14 +39,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/admob/www/AdmobPlugin.js",
-        "id": "admob.AdmobAd",
-        "pluginId": "admob",
-        "clobbers": [
-            "window.admob"
-        ]
-    },
-    {
         "file": "plugins/de.appplant.cordova.plugin.email-composer/www/email_composer.js",
         "id": "de.appplant.cordova.plugin.email-composer.EmailComposer",
         "pluginId": "de.appplant.cordova.plugin.email-composer",
@@ -67,19 +59,24 @@ module.exports = [
         "file": "plugins/cordova-plugin-x-toast/test/tests.js",
         "id": "cordova-plugin-x-toast.tests",
         "pluginId": "cordova-plugin-x-toast"
+    },
+    {
+        "file": "plugins/cordova-plugin-admobpro/www/AdMob.js",
+        "id": "cordova-plugin-admobpro.AdMob",
+        "clobbers": [
+            "window.AdMob"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-google-analytics/www/analytics.js",
+        "id": "cordova-plugin-google-analytics.UniversalAnalytics",
+        "clobbers": [
+            "analytics"
+        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
-{
-    "com.verso.cordova.clipboard": "0.1.0",
-    "cordova-plugin-device": "1.0.1",
-    "hu.dpal.phonegap.plugins.SpinnerDialog": "1.3.1",
-    "cordova-plugin-whitelist": "1.0.0",
-    "cordova-plugin-social-message": "0.3.1",
-    "admob": "5.2.0",
-    "de.appplant.cordova.plugin.email-composer": "0.8.2",
-    "cordova-plugin-x-toast": "2.2.1"
-}
+{}
 // BOTTOM OF METADATA
 });

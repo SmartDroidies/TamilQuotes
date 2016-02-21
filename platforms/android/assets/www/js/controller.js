@@ -25,6 +25,7 @@ tamilQuotesControllers.controller('HomeCtrl', ['$scope', '$http',  'CategoryServ
 		promise.then (
   			function(data) {
 			 	$scope.categories = data.categories;
+			 	window.analytics.trackView("Category Listing")
   			},
   			function(error) {
   				//FIXME - Display Error
@@ -99,6 +100,7 @@ tamilQuotesControllers.controller('QuotesCtrl', ['$scope', 'QuoteService', 'Cate
 		} else {
 			//console.log(JSON.stringify(quotes));
 			$scope.quotes = quotes;
+			window.analytics.trackView(ctgry.code + " - List")
 		}
 
 		$scope.category = ctgry;

@@ -93,15 +93,22 @@
         "cordova-plugin-social-message": {
             "PACKAGE_NAME": "com.smart.droidies.tamil.quotes"
         },
-        "admob": {
-            "PACKAGE_NAME": "com.smart.droidies.tamil.quotes"
-        },
         "de.appplant.cordova.plugin.email-composer": {
             "PACKAGE_NAME": "com.smart.droidies.tamil.quotes"
         },
         "cordova-plugin-x-toast": {
             "PACKAGE_NAME": "com.smart.droidies.tamil.quotes"
+        },
+        "cordova-plugin-admobpro": {
+            "PACKAGE_NAME": "com.smart.droidies.tamil.quotes"
+        },
+        "cordova-plugin-google-analytics": {
+            "PACKAGE_NAME": "com.smart.droidies.tamil.quotes"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-extension": {
+            "PACKAGE_NAME": "com.smart.droidies.tamil.quotes"
+        }
+    }
 }
