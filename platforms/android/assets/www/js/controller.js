@@ -183,6 +183,7 @@ tamilQuotesControllers.controller('QuoteCtrl', ['$scope', '$routeParams', 'Quote
 			console.log('JSON is empty. Display Error');
 		} else {
 			$scope.quote = quote;
+			window.analytics.trackView(ctgry.code + " - Quote View")
 		}
 		$scope.category = ctgry;
 		$scope.size = quote.size;
@@ -196,6 +197,7 @@ tamilQuotesControllers.controller('QuoteCtrl', ['$scope', '$routeParams', 'Quote
 			console.log('JSON is empty. Display Error');
 		} else {
 			$scope.quote = quote;
+			window.analytics.trackView("Individual Quote View")
 		}
 		//$scope.size = quote.size;
 		/*
