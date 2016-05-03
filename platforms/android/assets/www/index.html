@@ -1,22 +1,4 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
     <head>
         <!--
@@ -28,36 +10,32 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src * unsafe-inline; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' ">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://whatsappstatus.careerwrap.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' 'unsafe-eval';font-src 'self' https://fonts.gstatic.com; img-src 'self' data:">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="js/lib/angular-material.css">
         <link rel="stylesheet" type="text/css" href="css/tamilquotes.css">
-        <link rel="stylesheet" type="text/css" href="css/animate.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <title>Tamil Status & Quotes</title>
     </head>
-    <body class="col-xs-12 nopadding nomargin">
+    <body ng-cloak ng-view>
 
-        <!--Body content-->
-        <div ng-view class="content main col-xs-12">
-        </div>
-
-
-        <script src="js/angular/angular.js"></script>
-        <script src="js/angular-route/angular-route.min.js"></script>
-        <script src="js/jquery/jquery.min.js"></script>
-        <script src="js/underscore/underscore.js"></script>    
-        <script src="js/angular-resource/angular-resource.min.js"></script>    
-        <script src="js/angular-sanitize/angular-sanitize.min.js"></script>
-        <script src="js/angular-touch/angular-touch.min.js"></script>
-        <script src="js/angular-animate/angular-animate.js"></script>
-        <script src="js/underscore/angular-underscore-module.js"></script>  
-        <script type="text/javascript" src="js/i18next/i18next-1.8.0.min.js"></script>
-        <script type="text/javascript" src="js/i18next/ng-i18next.min.js"></script>        
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/notify.js"></script>
+        <script src="cordova.js"></script>
+        <script src="js/lib/angular.js"></script>
+        <script src="js/lib/angular-route.min.js"></script>
+        <script src="js/lib/angular-animate.js"></script>
+        <script src="js/lib/angular-aria.js"></script>  
+        <script src="js/lib/angular-material.js"></script>  
+        <script src="js/lib/angular-sanitize.min.js"></script>
+        <script src="js/lib/i18next-1.8.0.min.js"></script>
+        <script src="js/lib/ng-i18next.min.js"></script>        
+        <script src="js/lib/underscore.js"></script>    
+        <script src="js/lib/angular-underscore-module.js"></script>  
+        <script src="js/lib/jquery.min.js"></script>
+        <script src="js/lib/angular-resource.min.js"></script>    
+        <script src="js/index.js"></script>
+        <script src="js/notify.js"></script>
         <script src="js/app.js"></script>
         <script src="js/controller.js"></script>
         <script src="js/services.js"></script>

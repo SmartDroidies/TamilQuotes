@@ -1,3 +1,30 @@
+.grid-icon  {
+    height: 60px;
+    width: 60px;
+}
+
+.ctgry-card {
+    align-items: center;
+}
+
+.QUOTES, .FRIEND, .SAD {
+    text-align: center;
+    padding: 10px;
+}
+
+.md-toolbar-tools {
+    padding: 0px 8px;
+}
+
+h2.md-body-1.quote-head {
+    font-size: 16px;
+}
+
+button.md-icon-button.md-button {
+    margin: 0 2px;
+}
+
+/*
 div, p, li {
 	color:  #191919;
 }
@@ -43,8 +70,11 @@ body {
     margin: 0px 0px 0px 0px;
     height: 100%;
 }
+*/
+
 
 /* Main List Styling */
+/*
 ul.grid-main {
 	margin: 10px 0px 10px 0px;
     padding: 5px;	
@@ -74,10 +104,6 @@ ul.grid-main  li {
     font-weight: bold
 }
 
-.grid-icon  {
-	height: 60px;
-    width: 60px;
-}
 
 .navbar-quote {
 	background-color: #CDFDBC;
@@ -96,29 +122,16 @@ ul.grid-main  li {
 
 .list-quotes li {
 	list-style: none;
-	/* display: inline-block; */
     overflow: hidden;
     text-overflow: ellipsis;
-    /* line-height: 25px; */
     position: relative;
     padding: 5px;	
 }
 
 .quote-list-item {
 	border-bottom: 1px solid #1E7301;
-    /* padding: 5px 7px 10px 10px; */
     font-size: 15px;
 }
-
-/*
-li.quote-list-item:nth-child(even) {
-	background: #CCC
-}
-
-li.quote-list-item:nth-child(odd) {
-	 background: #FFF
-}
-*/
 
 .quote-content {
     margin: 10px 0px 0px 0px;
@@ -182,8 +195,6 @@ li.quote-list-item:nth-child(odd) {
   padding: 55px 0 0 0;
 }
 
-
-/* Setting Styling */
 #setting  {
     background: #eef5ef;
     box-shadow: 5px 5px 5px #94A095;    
@@ -253,7 +264,6 @@ li.quote-list-item:nth-child(odd) {
 .back, .favourite, .share, .copy {
     position: absolute;
     top: 2px;
-    /* right: 2px; */
     width: 35px;
     height: 35px;    
 } 
@@ -282,9 +292,15 @@ li.quote-list-item:nth-child(odd) {
 .group {
     padding: 0px;
     margin: 0px;
+    width: 100%;
 }
 
 .favourite-list {
     padding: 0px;
     margin: 0px;
 }
+
+.message {
+    margin-top: 100px;
+}
+*/

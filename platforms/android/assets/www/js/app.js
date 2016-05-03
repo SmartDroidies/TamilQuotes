@@ -1,7 +1,7 @@
 'use strict';
 
 /* App Module */
-var tamilQuotesApp = angular.module('tamilQuotesApp', ['ngRoute', 'ngSanitize', 'ngAnimate', 'ngTouch', 'jm.i18next', 'underscore', 'tamilQuotesControllers', 'tamilQuotesServices', 'cacheService', 'tamilQuotesFilter']); 
+var tamilQuotesApp = angular.module('tamilQuotesApp', ['ngRoute', 'ngSanitize', 'ngAnimate', 'ngMaterial',  'jm.i18next', 'underscore', 'tamilQuotesControllers', 'tamilQuotesServices', 'cacheService', 'tamilQuotesFilter']); 
 
 tamilQuotesApp.config(['$routeProvider', 
 		function ($routeProvider) {
@@ -30,6 +30,15 @@ tamilQuotesApp.config(['$routeProvider',
 			});
 		}
 	]);
+
+
+tamilQuotesApp.config(function($mdThemingProvider) {
+  $mdThemingProvider.theme('default') 
+    .primaryPalette('light-green')
+    .accentPalette('brown')
+    .warnPalette('deep-orange');
+});
+
 
 //ng-i18next - use i18next with Angularjs
 angular.module('jm.i18next').config(['$i18nextProvider', function ($i18nextProvider) {

@@ -1,30 +1,96 @@
+<md-toolbar class="toolbar">
+	<div class="md-toolbar-tools">
+		<!--md-button class="md-icon-button" aria-label="Settings">
+        	<md-icon class="material-icons">menu</md-icon>
+        </md-button-->
+        <h2 class="md-flex">Tamil Status & Quotes</h2>
+		<span flex></span>
+		<md-menu md-offset="5 5">
+		   <md-button aria-label="Settings" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+		      <md-icon md-menu-origin class="material-icons">more_vert</md-icon>
+		   </md-button>
+		   <md-menu-content width="4" >
+		   		<md-menu-item>
+					<md-button ng-click="shareApp()">Share</md-button>
+			 	</md-menu-item>		
+				<md-menu-item>
+					<md-button ng-click="rateus()">Rate Me</md-button>
+				</md-menu-item>	
+				<md-menu-item>
+					<md-button ng-click="feedback()">Feedback</md-button>
+				</md-menu-item>		
+		   </md-menu-content>
+		</md-menu>
+		<!--md-button class="md-icon-button" aria-label="More" ng-click="openSettingMenu()">
+		<md-icon class="material-icons">more_vert</md-icon>
+		</md-button-->	    	
+	</div>
+</md-toolbar>
+
+<md-tabs md-dynamic-height md-border-bottom>
+	<md-tab label="{{ 'tab.category' | i18next }}" md-on-select="displayCategories()">
+		<md-content class="md-padding">
+			<md-grid-list md-cols="3" md-gutter="0.25em" layout-fill md-row-height="95px" ng-cloak>
+				<md-grid-tile ng-repeat="category in categories" layout-xs="column">
+						<md-card layout="column" layout-fill layout-align="center center" class="ctgry-card" ng-click="quotes(category.id)">
+							 <img ng-src="{{category.imageUrl}}" class="md-card-image grid-icon" alt="{{category.code}}" />
+				         <md-card-footer flex layout-padding>
+				         	<span class="md-body-2">{{category.code | i18next}}</span>
+				         </md-card-footer>
+					</md-card>					
+           		</md-grid-tile>
+			</md-grid-list>
+		</md-content>
+	</md-tab>
+	<md-tab label="{{ 'tab.favourite' | i18next }}" md-on-select="favouriteView()">
+		<md-content class="md-padding">
+			<div ng-if="favourite.length == 0" class="col-xs-12 message">
+				No Favourite found
+			</div>  
+			<md-list>
+		       <md-list-item class="md-2-line contact-item" ng-repeat="quote in favourite" ng-click="displayQuote(quote.id)">
+		          <div class="md-list-item-text compact">
+		             <p>{{quote.content | wrap}}</p>
+		          </div>
+				  <md-divider ng-if="!$last"></md-divider>
+		       </md-list-item>
+			</md-list>
+		</md-content>
+	</md-tab>
+</md-tabs>
+<!--md-sidenav md-component-id="setting" class="md-sidenav-right">
+  <ul class="nav nav-list">
+      <li><a href="#share" onclick="shareApp()">Share</a></li>
+      <li><a href="#rate" onclick="rateus()">Rate Me</a></li>
+      <li><a href="#feedback" onclick="feedback()">Feedback</a></li>
+  </ul>
+</md-sidenav-->
+
+
 <!-- Header -->
-<nav class="navbar navbar-quote navbar-fixed-top col-xs-12 nopadding nomargin" role="navigation">
+<!--nav class="navbar navbar-quote navbar-fixed-top col-xs-12 nopadding nomargin" role="navigation">
   <div class="navbar-header main-header col-xs-12 nopadding nomargin">
-    <!--img id="menu-cntrl" class="menu-control" src="images/menu.png"/-->
     <div class="head_section col-xs-12 nopadding nomargin">
       <h2  id="main-title" class="main-title">Tamil Status & Quotes</h2>
     </div>
-    <img id="setting-cntrl" class="setting-control" src="images/setting.png"/>
+    <img id="setting-cntrl" class="setting-control" src="images/setting.png" />
   </div>
-</nav>
+</nav-->
 
-
-
-<ul id="main-tabs" class="nav nav-tabs col-xs-12 main-tabs">
-	<!--li class="col-xs-4" ng-class="{'active': tab == 1}" ng-click="unreadView()">
+<!--ul id="main-tabs" class="nav nav-tabs col-xs-12 main-tabs">
+	<li class="col-xs-4" ng-class="{'active': tab == 1}" ng-click="unreadView()">
 	  <a class="main-tab-link">{{ 'UNREAD_TAB' | translate }}</a>
-	</li-->
+	</li>
 	<li class="col-xs-6" ng-class="{'active': tab == 1}" ng-click="ctgryView()">
 	  <a class="main-tab-link">{{ 'tab.category' | i18next }}</a>
 	</li>
 	<li class="col-xs-6" ng-class="{'active': tab == 2}" ng-click="favouriteView()">
 	  <a class="main-tab-link">{{ 'tab.favourite' | i18next }}</a>
 	</li>
-</ul>
+</ul-->
 
 <!-- Group View for Categories  --> 
-<div id="group-category" ng-if="tab == 1" class="col-xs-12 group">
+<!--div id="group-category" ng-if="tab == 1" class="col-xs-12 group">
 	<ul id="ctgryList" class="grid-main col-xs-12" ng-swipe-right="showList()">
 	    <li ng-repeat="category in categories" class="col-xs-4 grid-cell">
 			<a href="#/quotes/{{category.id}}" class="col-xs-12 section">
@@ -37,11 +103,11 @@
 			</a>		
 	    </li>
 	</ul>
-</div>
+</div-->
 
 <!-- Group View for Favourite Articles --> 
-<div id="group-favourite" ng-if="tab == 2" class="col-xs-12 group quote">
-  <div ng-if="favourite.length == 0" class="col-xs-12">
+<!--div id="group-favourite" ng-if="tab == 2" class="col-xs-12 group quote">
+  <div ng-if="favourite.length == 0" class="col-xs-12 message">
     No Favourite found
   </div>  
 
@@ -50,14 +116,14 @@
 	    	{{quote.content | wrap}}
 	    </li>
 	</ul>
-</div>  
-
+</div-->  
 
 <!-- Settings Menu -->
-<div id="setting" class="setting">
+<!--div id="setting" class="setting">
   <ul class="nav nav-list">
       <li><a href="#share" onclick="shareApp()">Share</a></li>
       <li><a href="#rate" onclick="rateus()">Rate Me</a></li>
       <li><a href="#feedback" onclick="feedback()">Feedback</a></li>
   </ul>
-</div>
+</div-->
+

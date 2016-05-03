@@ -211,11 +211,13 @@ tamilQuotesServices.factory ('QuoteService', function (StorageService, _, cacheS
 		var self = this;
 		var quotes = self.fetchQuotes();
 		var quote = null; 
-		//console.log("Quotes Size : " + _.size(quotes))
+		console.log("Quotes Size : " + _.size(quotes))
 		quote = _.find(quotes, function(item) {  
 			return item.id == quoteid;
 		});
-		quote.swipe = false;
+		if(quote) {
+			quote.swipe = false;
+		}	
 		return quote;
     }
 

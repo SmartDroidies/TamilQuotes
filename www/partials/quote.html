@@ -1,32 +1,31 @@
-<div class="quote col-xs-12">
-	<!-- Header -->
-	<nav class="navbar navbar-default navbar-quote navbar-fixed-top col-xs-12" role="navigation">
-		<div class="navbar-header main-header col-xs-12">
-			<img id="img-copy" class="back" src="images/back.png" onclick="history.back();"/>
-			<div class="head_section col-xs-12">
-				<label class="main-title-quote col-xs-12" ng-if="quote.position">{{category.code | i18next}}  ({{quote.position}} of {{quote.size}})</label>
-				<label class="main-title-quote col-xs-12" ng-if="quote.position == 'undefined'">Tamil Status & Quotes</label>
-			</div>
-			<img id="img-favourite" class="favourite" src="images/unfavorite.png" ng-if="quote.favourite" ng-click="unfavourite($event, quote)"/>
-			<img id="img-unfavourite" class="favourite" src="images/favorite.png" ng-if="!quote.favourite" ng-click="favourite($event, quote)"/>
-			<img id="img-share" class="share" src="images/share.png" ng-click="share($event, tip)"/>
-			<img id="img-copy" class="copy" src="images/copy.png" ng-click="copy(quote)"> 
-		</div>
-	</nav>
+<md-toolbar class="toolbar">
+	<div class="md-toolbar-tools">
+		<md-button class="md-icon-button" aria-label="back" ng-click="back()">
+			<md-icon md-menu-origin class="material-icons">keyboard_backspace</md-icon>
+        </md-button>
+		<h2 class="md-body-1 quote-head" ng-if="quote.position">{{category.code | i18next}}  ({{quote.position}} of {{quote.size}})</h2>
+		<h2 class="md-subhead" ng-if="quote.position == 'undefined'">{{category.code | i18next}}</h2>
+		<span flex></span>
+		<md-button class="md-icon-button" aria-label="favourite" ng-if="quote.favourite" ng-click="unfavourite($event, quote)">
+        	<md-icon class="material-icons">favorite</md-icon>
+        </md-button>
+		<md-button class="md-icon-button" aria-label="unfavourite" ng-if="!quote.favourite" ng-click="favourite($event, quote)">
+        	<md-icon class="material-icons">favorite_border</md-icon>
+        </md-button>
+		<md-button class="md-icon-button" aria-label="content copy" ng-click="copy(quote)">
+        	<md-icon class="material-icons">content_copy</md-icon>
+        </md-button>
+		<md-button class="md-icon-button" aria-label="share" ng-click="share($event, tip)">
+        	<md-icon class="material-icons">share</md-icon>
+        </md-button>
+	</div>
+</md-toolbar>
 
-	<div class="quote content" ng-swipe-left="older({{index}})" ng-swipe-right="newer({{index}})">
+<md-content class="layout-fill">
+	<div md-swipe-left="older({{index}})" md-swipe-right="newer({{index}})" class="layout-fill">
 		<input type="hidden" id="sequence" ng-model="quote.position"/></input>
 		<input type="hidden" ng-model="quote.size"/></input>
 		<input type="hidden" value="{{quote.id}}"/></input>
-		<div class="quote-content" ng-bind-html="quote.content" ng-class="category.code"></div>
+		<div flex layout-align="center center" class="layout-fill layout-margin layout-padding layout-wrap md-title" ng-bind-html="quote.content" ng-class="category.code"></div>
 	</div>	
-</div>	
-
-<!--div id="footer" class="col-xs-12">
-	<div class="icon-group col-xs-12" role="group">
-	  <div class="col-xs-3 icon"><img src="images/prev.png" ng-click="newer(index)"> </div>
-	  <div class="col-xs-3 icon"><img src="images/copy.png" ng-click="copy(quote)"> </div>
-	  <div class="col-xs-3 icon"><img src="images/share.png" ng-click="share(quote)"> </div>
-	  <div class="col-xs-3 icon"><img src="images/next.png" ng-click="older(index)"> </div>
-	</div>
-</div-->	
+</md-content>

@@ -4,8 +4,8 @@
 var tamilQuotesControllers = angular.module('tamilQuotesControllers', []);
 
 
-tamilQuotesControllers.controller('HomeCtrl', ['$scope', '$http',  'CategoryService', 'StorageService', 'QuoteService', '$location', '$rootScope',
-  function($scope, $http,  categoryService, StorageService, Quote, $location, $rootScope) {
+tamilQuotesControllers.controller('HomeCtrl', ['$scope', '$http',  'CategoryService', 'StorageService', 'QuoteService', '$location', '$rootScope', '$mdSidenav',
+  function($scope, $http,  categoryService, StorageService, Quote, $location, $rootScope, $mdSidenav) {
 	
 	$scope.displayHome = function () {    
 		if($rootScope.tab == 1) { 
@@ -49,7 +49,7 @@ tamilQuotesControllers.controller('HomeCtrl', ['$scope', '$http',  'CategoryServ
 	//Display Favourite Articles
 	$scope.favouriteView = function() {
 		$scope.favourite = Quote.collectFavourites();
-		//console.log("Favourites : " + $scope.favourite.length);
+		console.log("Favourites : " + $scope.favourite.length);
 		$rootScope.tab = 2;
     };
 
@@ -59,7 +59,11 @@ tamilQuotesControllers.controller('HomeCtrl', ['$scope', '$http',  'CategoryServ
 		$location.path('/quote/' + quoteId);  
 	};
 
-
+    //Display Quote List
+	$scope.quotes = function (categoryId) {
+		//console.log('Params : ' + categoryId );
+		$location.path('/quotes/' + categoryId);  
+	};
 
 	//Set Default Tab to Category Listing
 	if(!$rootScope.tab) {
@@ -113,7 +117,7 @@ tamilQuotesControllers.controller('QuotesCtrl', ['$scope', 'QuoteService', 'Cate
 	};
 
 	//Go Back 
-	$scope.goBack = function () {	
+	$scope.back = function () {	
 		//console.log("Going back to previous screen");
 		window.history.back();
 	}
@@ -132,7 +136,6 @@ tamilQuotesControllers.controller('QuoteListCtrl', ['$scope', '$http',  'QuoteSe
 	$scope.showList = function () {       
 		//window.plugins.spinnerDialog.show();
     	//window.plugins.spinnerDialog.hide();
-
 	};
 
 	//List All new quptes
@@ -146,7 +149,6 @@ tamilQuotesControllers.controller('QuoteListCtrl', ['$scope', '$http',  'QuoteSe
 		}
 	};
 	
-
 	//Show List
 	$scope.listNewQuotes();
 
@@ -155,17 +157,16 @@ tamilQuotesControllers.controller('QuoteListCtrl', ['$scope', '$http',  'QuoteSe
 
 
 //Controller to display Quote Detail
-tamilQuotesControllers.controller('QuoteCtrl', ['$scope', '$routeParams', 'QuoteService', 'CategoryService', 'FavouriteService', '$sce', '$interval',
-	function($scope, $routeParams, Quote,  Category, Favourite, $sce, $interval) {
+tamilQuotesControllers.controller('QuoteCtrl', ['$scope', '$routeParams', 'QuoteService', 'CategoryService', 'FavouriteService', '$sce', '$interval', '$http', '$location',
+	function($scope, $routeParams, Quote,  Category, Favourite, $sce, $interval, $http, $location) {
 
 	$scope.displaySelectedQuote = function() {
-		showInterstitial();
 		var categoryId = $routeParams.cat;
 		var idx = $routeParams.index;
 		var quoteid = $routeParams.id;
 
 		if(quoteid != undefined) {
-			//console.log("Display favourite quote detail : " + quoteid);	
+			console.log("Display Individual quote detail : " + quoteid);	
 			$scope.displaySelectedQuoteDetail(quoteid);
 		} else {
 			$scope.index = idx;
@@ -176,13 +177,15 @@ tamilQuotesControllers.controller('QuoteCtrl', ['$scope', '$routeParams', 'Quote
 	}
 
 	//Method to display quote detail
-	$scope.displayQuoteDetail = function () {         
+	$scope.displayQuoteDetail = function () {  
+		showInterstitial();       
 		var ctgry = Category.collectCategory($scope.categoryId);
 		var quote = Quote.collectQuote($scope.categoryId, $scope.index);
 		if (quote === undefined || quote === null) {
 			console.log('JSON is empty. Display Error');
 		} else {
 			$scope.quote = quote;
+			console.log("Quote Detail : " + JSON.stringify($scope.quote));
 			window.analytics.trackView(ctgry.code + " - Quote View")
 		}
 		$scope.category = ctgry;
@@ -190,11 +193,24 @@ tamilQuotesControllers.controller('QuoteCtrl', ['$scope', '$routeParams', 'Quote
 	}
 
 	//Method to display quote detail
-	$scope.displaySelectedQuoteDetail = function (quoteid) {        
-		//console.log("Display selected quote detail : " + quoteid);		 
+	$scope.displaySelectedQuoteDetail = function (quoteid) {   
+		showInterstitial();     
+		console.log("Display selected quote detail : " + quoteid);		 
 		var quote = Quote.collectSingleQuote(quoteid);
 		if (quote === undefined || quote === null) {
-			console.log('JSON is empty. Display Error');
+			$http.get('http://whatsappstatus.careerwrap.com/?json=y&id=' + quoteid).
+	    	    success(function(data) {
+	    	    	//console.log("JSON Data : " + JSON.stringify(data));	
+	    	    	if (!angular.isUndefined(data.quotes) && data.quotes.length > 0) {
+	    	    		window.analytics.trackView("Notification - Remote Quote Viewed");
+						var remotequote = data.quotes[0];
+						remotequote.poition = 0;
+	            		$scope.quote = remotequote;
+	            	} else {
+	            		//console.log("JSON Data : " + JSON.stringify(data));
+	            		$location.path('/home');  
+	            	}
+	    		})		
 		} else {
 			$scope.quote = quote;
 			window.analytics.trackView("Individual Quote View")
@@ -248,13 +264,39 @@ tamilQuotesControllers.controller('QuoteCtrl', ['$scope', '$routeParams', 'Quote
 	$scope.favourite = function ($event, quote) {         
 		Favourite.addTip(quote.id);
 		$scope.quote.favourite = true;
+
+		window.plugins.toast.showWithOptions(
+    		{
+      			message: "Added to favourite",
+      			duration: "long",
+      			position: "bottom",
+      			addPixelsY: -90  // added a negative value to move it up a bit (default 0) 
+    		}
+  		);
+
 	};
 
 	//Remove tip from favourite
 	$scope.unfavourite = function ($event, quote) {         
 		Favourite.removeTip(quote.id);
 		$scope.quote.favourite = false;
+
+		window.plugins.toast.showWithOptions(
+    		{
+      			message: "Removed from favourite",
+      			duration: "long",
+      			position: "bottom",
+      			addPixelsY: -90  // added a negative value to move it up a bit (default 0) 
+    		}
+  		);
+
 	};
+
+	//Go Back 
+	$scope.back = function () {	
+		//console.log("Going back to previous screen");
+		window.history.back();
+	}
 
 	//Loading the Tips
 	$scope.displaySelectedQuote();
